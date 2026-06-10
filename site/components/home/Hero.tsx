@@ -6,13 +6,11 @@ import ScrollExpandMedia from '@/components/ui/scroll-expansion-hero';
 export default function Hero() {
   return (
     <ScrollExpandMedia
-      mediaType="image"
       mediaSrc="/projects/v/gallery-01.png"
-      bgImageSrc="/projects/lara/gallery-03.jpg"
+      bgImageSrc="/projects/v/gallery-01.png"
       title="GABRIELE CARROZZINI"
       date="Visual Designer · Rome, Italy"
       scrollToExpand="Scroll to expand"
-      textBlend
     >
       {/* ── Content visible after full expansion ── */}
       <div
