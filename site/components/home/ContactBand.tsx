@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 
 export default function ContactBand() {
@@ -21,7 +21,7 @@ export default function ContactBand() {
       <div
         style={{
           position: 'absolute', inset: 0,
-          backgroundImage: 'linear-gradient(rgba(233,161,36,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(233,161,36,0.06) 1px, transparent 1px)',
+          backgroundImage: 'linear-gradient(rgba(250,250,248,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(250,250,248,0.04) 1px, transparent 1px)',
           backgroundSize: '80px 80px',
         }}
         aria-hidden="true"
@@ -30,7 +30,7 @@ export default function ContactBand() {
       <div className="container-site" style={{ position: 'relative', textAlign: 'center' }}>
         <ScrollReveal>
           <span className="label-gold" style={{ display: 'block', marginBottom: 'var(--space-3)' }}>
-            Available for Freelance · Open to Roles
+            Available for Freelance Â· Open to Roles
           </span>
         </ScrollReveal>
 
@@ -54,7 +54,7 @@ export default function ContactBand() {
 
         <ScrollReveal delay={0.2}>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: 'var(--fs-body)', color: 'var(--gray-500)', lineHeight: 1.65, maxWidth: '45ch', margin: '0 auto var(--space-6)' }}>
-            Whether it&rsquo;s a brand identity, a key art campaign, a poster, or a full visual system — if it starts with a brief and ends with intent, I&rsquo;m interested.
+            Whether it&rsquo;s a brand identity, a key art campaign, a poster, or a full visual system â€” if it starts with a brief and ends with intent, I&rsquo;m interested.
           </p>
         </ScrollReveal>
 
@@ -78,13 +78,14 @@ export default function ContactBand() {
             fontFamily: 'var(--font-mono)',
             fontSize: '0.6rem',
             letterSpacing: '0.28em',
-            color: 'rgba(233,161,36,0.25)',
+            color: 'rgba(250,250,248,0.15)',
             textTransform: 'uppercase',
           }}
         >
-          XN4LCO-43KS · 未来 · VISUAL POWER
+          XN4LCO-43KS Â· æœªæ¥ Â· VISUAL POWER
         </div>
       </div>
     </section>
   );
 }
+

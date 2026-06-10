@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useRef, useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
@@ -10,7 +10,7 @@ import ScrollReveal from '@/components/ui/ScrollReveal';
 
 const PREVIEW_INTERVAL = 1700; // ms between gallery images on hover
 
-/* ─── Single featured card ──────────────────────────────────── */
+/* â”€â”€â”€ Single featured card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 function FeaturedCard({ project, index }: { project: Project; index: number }) {
   const [previewIdx, setPreviewIdx]     = useState<number | null>(null);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -59,7 +59,7 @@ function FeaturedCard({ project, index }: { project: Project; index: number }) {
             '--project-accent': project.accentColor,
           } as React.CSSProperties}
         >
-          {/* ── Steam-style progress bar — appears on hover ── */}
+          {/* â”€â”€ Steam-style progress bar â€” appears on hover â”€â”€ */}
           <AnimatePresence>
             {isPreviewing && gallery.length > 1 && (
               <motion.div
@@ -88,7 +88,7 @@ function FeaturedCard({ project, index }: { project: Project; index: number }) {
             )}
           </AnimatePresence>
 
-          {/* ── Base card image ── */}
+          {/* â”€â”€ Base card image â”€â”€ */}
           <motion.div
             variants={{ hover: { scale: 1.05 }, initial: { scale: 1 } }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -103,7 +103,7 @@ function FeaturedCard({ project, index }: { project: Project; index: number }) {
             />
           </motion.div>
 
-          {/* ── Cycling preview images (Steam effect) ── */}
+          {/* â”€â”€ Cycling preview images (Steam effect) â”€â”€ */}
           <AnimatePresence mode="sync">
             {previewSrc && (
               <motion.div
@@ -125,7 +125,7 @@ function FeaturedCard({ project, index }: { project: Project; index: number }) {
             )}
           </AnimatePresence>
 
-          {/* ── Permanent bottom gradient ── */}
+          {/* â”€â”€ Permanent bottom gradient â”€â”€ */}
           <div
             style={{
               position: 'absolute', inset: 0,
@@ -135,7 +135,7 @@ function FeaturedCard({ project, index }: { project: Project; index: number }) {
           />
 
 
-          {/* ── Card info ── */}
+          {/* â”€â”€ Card info â”€â”€ */}
           <div
             style={{
               position: 'absolute', bottom: 0, left: 0, right: 0,
@@ -162,14 +162,14 @@ function FeaturedCard({ project, index }: { project: Project; index: number }) {
             </h3>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--gray-500)' }}>
-                {project.type.split(' · ')[0]}
+                {project.type.split(' Â· ')[0]}
               </span>
               <motion.span
                 variants={{ hover: { opacity: 1, x: 0 }, initial: { opacity: 0, x: -6 } }}
                 transition={{ duration: 0.3 }}
                 style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', letterSpacing: '0.16em', color: project.accentColor }}
               >
-                View →
+                View â†’
               </motion.span>
             </div>
             {project.status !== 'original' && (
@@ -186,7 +186,7 @@ function FeaturedCard({ project, index }: { project: Project; index: number }) {
   );
 }
 
-/* ─── View-all end card ─────────────────────────────────────── */
+/* â”€â”€â”€ View-all end card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 function ViewAllCard({ total }: { total: number }) {
   return (
     <ScrollReveal style={{ flexShrink: 0 }}>
@@ -210,7 +210,7 @@ function ViewAllCard({ total }: { total: number }) {
           <div
             style={{
               position: 'absolute', inset: 0,
-              backgroundImage: 'linear-gradient(rgba(233,161,36,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(233,161,36,0.05) 1px, transparent 1px)',
+              backgroundImage: 'linear-gradient(rgba(250,250,248,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(250,250,248,0.03) 1px, transparent 1px)',
               backgroundSize: '40px 40px',
             }}
             aria-hidden="true"
@@ -230,7 +230,7 @@ function ViewAllCard({ total }: { total: number }) {
               transition={{ duration: 0.3 }}
               style={{ fontFamily: 'var(--font-mono)', fontSize: '1.2rem', color: 'var(--gold-500)', marginTop: 20 }}
             >
-              →
+              â†’
             </motion.div>
           </div>
         </motion.div>
@@ -239,7 +239,7 @@ function ViewAllCard({ total }: { total: number }) {
   );
 }
 
-/* ─── Section ───────────────────────────────────────────────── */
+/* â”€â”€â”€ Section â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 export default function FeaturedWork() {
   const featured = getFeaturedProjects();
 
@@ -254,7 +254,7 @@ export default function FeaturedWork() {
         overflow: 'hidden',
       }}
     >
-      {/* ── Section header ── */}
+      {/* â”€â”€ Section header â”€â”€ */}
       <div className="container-site" style={{ marginBottom: 'var(--space-5)' }}>
         <ScrollReveal>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: 'var(--space-2)' }}>
@@ -274,13 +274,13 @@ export default function FeaturedWork() {
               Selected Work
             </h2>
             <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', letterSpacing: '0.16em', color: 'var(--gray-500)', textTransform: 'uppercase' }}>
-              Hover to preview · click to open case study
+              Hover to preview Â· click to open case study
             </p>
           </div>
         </ScrollReveal>
       </div>
 
-      {/* ── Horizontal scroll track ── */}
+      {/* â”€â”€ Horizontal scroll track â”€â”€ */}
       <div
         style={{
           display: 'flex',
@@ -307,3 +307,4 @@ export default function FeaturedWork() {
     </section>
   );
 }
+

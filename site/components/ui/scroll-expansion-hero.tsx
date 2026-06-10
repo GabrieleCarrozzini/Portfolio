@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useRef, useState, ReactNode } from 'react';
 import Image from 'next/image';
@@ -15,14 +15,14 @@ interface ScrollExpandMediaProps {
 
 /*
   Performance notes
-  ─────────────────
-  • scrollProgress is a MotionValue, NOT React state → wheel/touch events never
+  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  â€¢ scrollProgress is a MotionValue, NOT React state â†’ wheel/touch events never
     trigger a React re-render; Framer Motion updates the DOM directly.
-  • All animated properties (clipPath, opacity, x) are derived via useTransform
+  â€¢ All animated properties (clipPath, opacity, x) are derived via useTransform
     and run entirely on Framer Motion's animation loop, off the React render cycle.
-  • clip-path: inset() is GPU-composited in every modern browser — it never causes
+  â€¢ clip-path: inset() is GPU-composited in every modern browser â€” it never causes
     layout reflow, unlike animating width/height which does every frame.
-  • will-change hints promote animated elements to their own compositor layer.
+  â€¢ will-change hints promote animated elements to their own compositor layer.
 */
 export default function ScrollExpandMedia({
   mediaSrc,
@@ -32,19 +32,19 @@ export default function ScrollExpandMedia({
   scrollToExpand,
   children,
 }: ScrollExpandMediaProps) {
-  // ── Motion value — never causes React re-renders ──────────────────────────
+  // â”€â”€ Motion value â€” never causes React re-renders â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const progress = useMotionValue(0);
 
-  // ── Threshold-based state (only changes 2-3 times per session) ────────────
+  // â”€â”€ Threshold-based state (only changes 2-3 times per session) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const [expanded, setExpanded]       = useState(false);
   const [showContent, setShowContent] = useState(false);
 
-  // ── Viewport dimensions in refs — updated on resize, read by transforms ───
+  // â”€â”€ Viewport dimensions in refs â€” updated on resize, read by transforms â”€â”€â”€
   const winW        = useRef(typeof window !== 'undefined' ? window.innerWidth  : 1440);
   const winH        = useRef(typeof window !== 'undefined' ? window.innerHeight : 900);
   const isMobileRef = useRef(typeof window !== 'undefined' ? window.innerWidth < 768 : false);
 
-  // ── Derived animated values ───────────────────────────────────────────────
+  // â”€â”€ Derived animated values â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
   // Background fades out in the first half of the scroll
   const bgOpacity = useTransform(progress, [0, 0.55], [1, 0]);
@@ -53,7 +53,7 @@ export default function ScrollExpandMedia({
   const overlayOpacity = useTransform(progress, [0, 1], [0.6, 0]);
 
   // clip-path crops the full-screen image to a small centered rectangle at 0,
-  // expanding to full viewport at 1. GPU-composited — zero layout reflow.
+  // expanding to full viewport at 1. GPU-composited â€” zero layout reflow.
   const clipPath = useTransform(progress, (p) => {
     const startW = isMobileRef.current ? 240 : 320;
     const startH = isMobileRef.current ? 340 : 440;
@@ -82,7 +82,7 @@ export default function ScrollExpandMedia({
   const lx1 = useTransform(progress, (p) => -(p * winW.current * 1.2));
   const lx2 = useTransform(progress, (p) =>   p * winW.current * 1.2);
 
-  // ── Resize handler ────────────────────────────────────────────────────────
+  // â”€â”€ Resize handler â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   useEffect(() => {
     const onResize = () => {
       winW.current        = window.innerWidth;
@@ -97,7 +97,7 @@ export default function ScrollExpandMedia({
     return () => window.removeEventListener('resize', onResize);
   }, [progress]);
 
-  // ── Scroll / touch event handlers ────────────────────────────────────────
+  // â”€â”€ Scroll / touch event handlers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   useEffect(() => {
     let touchY = 0;
 
@@ -164,7 +164,7 @@ export default function ScrollExpandMedia({
     <div className="overflow-x-hidden" style={{ background: 'var(--black-900)' }}>
       <section className="relative flex flex-col min-h-[100dvh]">
 
-        {/* ── Background — same image, fades out ── */}
+        {/* â”€â”€ Background â€” same image, fades out â”€â”€ */}
         <motion.div
           className="absolute inset-0 z-0"
           style={{ opacity: bgOpacity, willChange: 'opacity' }}
@@ -184,10 +184,10 @@ export default function ScrollExpandMedia({
           />
         </motion.div>
 
-        {/* ── Hero viewport ── */}
+        {/* â”€â”€ Hero viewport â”€â”€ */}
         <div className="relative z-10 w-full h-[100dvh] overflow-hidden">
 
-          {/* Expanding image — clip-path grows from center rectangle to full screen */}
+          {/* Expanding image â€” clip-path grows from center rectangle to full screen */}
           <motion.div
             className="absolute inset-0"
             style={{ clipPath, willChange: 'clip-path' }}
@@ -214,12 +214,12 @@ export default function ScrollExpandMedia({
             style={{
               clipPath: borderClip,
               opacity: borderOpacity,
-              outline: '1px solid rgba(233,161,36,0.55)',
+              outline: '1px solid rgba(250,250,248,0.4)',
               willChange: 'clip-path, opacity',
             }}
           />
 
-          {/* Title — GABRIELE slides left, CARROZZINI slides right */}
+          {/* Title â€” GABRIELE slides left, CARROZZINI slides right */}
           <div className="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none select-none gap-2 mix-blend-difference">
             <motion.div
               style={{
@@ -253,7 +253,7 @@ export default function ScrollExpandMedia({
             </motion.div>
           </div>
 
-          {/* Labels — bottom, split apart */}
+          {/* Labels â€” bottom, split apart */}
           <div className="absolute bottom-8 left-0 right-0 flex justify-between px-8 z-20 pointer-events-none">
             {date && (
               <motion.p
@@ -263,7 +263,7 @@ export default function ScrollExpandMedia({
                   fontFamily: 'var(--font-mono)',
                   fontSize: '0.6rem',
                   letterSpacing: '0.28em',
-                  color: 'rgba(233,161,36,0.7)',
+                  color: 'rgba(250,250,248,0.5)',
                   textTransform: 'uppercase',
                 }}
               >
@@ -289,7 +289,7 @@ export default function ScrollExpandMedia({
 
         </div>
 
-        {/* ── Content revealed after full expansion ── */}
+        {/* â”€â”€ Content revealed after full expansion â”€â”€ */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: showContent ? 1 : 0 }}
@@ -302,3 +302,4 @@ export default function ScrollExpandMedia({
     </div>
   );
 }
+

@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import React, { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -13,7 +13,7 @@ export interface MediaItemType {
   span: string
 }
 
-/* ─── MediaItem ─────────────────────────────────────────────── */
+/* â”€â”€â”€ MediaItem â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 const MediaItem = ({
   item,
   className,
@@ -83,7 +83,7 @@ const MediaItem = ({
           <div className="absolute inset-0 flex items-center justify-center">
             <div
               className="w-5 h-5 rounded-full animate-spin"
-              style={{ border: '2px solid rgba(233,161,36,0.25)', borderTopColor: 'var(--gold-500)' }}
+              style={{ border: '2px solid rgba(250,250,248,0.15)', borderTopColor: 'var(--gold-500)' }}
             />
           </div>
         )}
@@ -104,7 +104,7 @@ const MediaItem = ({
   )
 }
 
-/* ─── GalleryModal ──────────────────────────────────────────── */
+/* â”€â”€â”€ GalleryModal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 interface GalleryModalProps {
   selectedItem: MediaItemType
   isOpen: boolean
@@ -229,8 +229,8 @@ const GalleryModal = ({
         <div
           className="flex items-center -space-x-2 px-3 py-2 cursor-grab active:cursor-grabbing"
           style={{
-            background: 'rgba(233,161,36,0.08)',
-            border: '1px solid rgba(233,161,36,0.22)',
+            background: 'rgba(250,250,248,0.06)',
+            border: '1px solid rgba(250,250,248,0.15)',
             backdropFilter: 'blur(16px)',
           }}
         >
@@ -260,7 +260,7 @@ const GalleryModal = ({
                 <motion.div
                   layoutId="activeGlow"
                   className="absolute -inset-2 blur-xl"
-                  style={{ background: 'rgba(233,161,36,0.2)' }}
+                  style={{ background: 'rgba(250,250,248,0.12)' }}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.2 }}
@@ -274,7 +274,7 @@ const GalleryModal = ({
   )
 }
 
-/* ─── InteractiveBentoGallery ───────────────────────────────── */
+/* â”€â”€â”€ InteractiveBentoGallery â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 interface InteractiveBentoGalleryProps {
   mediaItems: MediaItemType[]
 }
@@ -368,7 +368,7 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
                   className="absolute top-2 left-2 pointer-events-none"
                   initial={{ opacity: 0 }}
                   whileHover={{ opacity: 1 }}
-                  style={{ width: 14, height: 14, borderTop: '1px solid rgba(233,161,36,0.6)', borderLeft: '1px solid rgba(233,161,36,0.6)' }}
+                  style={{ width: 14, height: 14, borderTop: '1px solid rgba(250,250,248,0.5)', borderLeft: '1px solid rgba(250,250,248,0.5)' }}
                 />
               </motion.div>
             ))}
@@ -380,3 +380,4 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
 }
 
 export default InteractiveBentoGallery
+

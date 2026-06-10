@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import ScrollReveal from '@/components/ui/ScrollReveal';
@@ -38,7 +38,7 @@ export default function ContactClient() {
             Start a<br />Conversation.
           </h1>
           <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', letterSpacing: '0.2em', color: 'var(--gold-500)', textTransform: 'uppercase' }}>
-            Available for Freelance · Open to Roles
+            Available for Freelance Â· Open to Roles
           </div>
         </ScrollReveal>
 
@@ -74,10 +74,10 @@ export default function ContactClient() {
                   <a key={s.label} href={s.href} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: 'var(--space-2) 0', borderBottom: '1px solid var(--line)', textDecoration: 'none', transition: 'all 200ms ease' }}
                     onMouseOver={(e) => { e.currentTarget.style.borderBottomColor = 'var(--gold-500)'; }}
                     onMouseOut={(e) => { e.currentTarget.style.borderBottomColor = 'var(--line)'; }}
-                    aria-label={`${s.label} — ${s.handle}`}
+                    aria-label={`${s.label} â€” ${s.handle}`}
                   >
                     <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', letterSpacing: '0.2em', color: 'var(--white)', textTransform: 'uppercase' }}>{s.label}</span>
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', letterSpacing: '0.1em', color: 'var(--gray-500)' }}>{s.handle} →</span>
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', letterSpacing: '0.1em', color: 'var(--gray-500)' }}>{s.handle} â†’</span>
                   </a>
                 ))}
               </div>
@@ -86,7 +86,7 @@ export default function ContactClient() {
             <div style={{ padding: 'var(--space-4)', border: '1px solid var(--line)', background: 'var(--black-800)' }}>
               <div className="label-gold" style={{ marginBottom: 8 }}>Availability</div>
               <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.9rem', color: 'var(--gray-500)', lineHeight: 1.6 }}>
-                Available for freelance projects and open to full-time creative roles. Typical project lead time 2–4 weeks.
+                Available for freelance projects and open to full-time creative roles. Typical project lead time 2â€“4 weeks.
               </p>
               <div style={{ marginTop: 'var(--space-2)', display: 'flex', alignItems: 'center', gap: 8 }}>
                 <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#4CAF50', display: 'inline-block', boxShadow: '0 0 6px #4CAF50' }} aria-hidden="true" />
@@ -95,7 +95,7 @@ export default function ContactClient() {
             </div>
           </ScrollReveal>
 
-          {/* Right — form */}
+          {/* Right â€” form */}
           <ScrollReveal>
             {status === 'sent' ? (
               <div style={{ padding: 'var(--space-7)', textAlign: 'center', border: '1px solid var(--gold-500)', background: 'var(--black-800)' }}>
@@ -126,11 +126,11 @@ export default function ContactClient() {
                 </div>
                 <div>
                   <label htmlFor="message" className="label" style={{ display: 'block', marginBottom: 6 }}>Message *</label>
-                  <textarea id="message" name="message" required rows={6} className="form-input" placeholder="Brief the project — scope, timeline, references…" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} style={{ resize: 'vertical', fontFamily: 'var(--font-body)' }} />
+                  <textarea id="message" name="message" required rows={6} className="form-input" placeholder="Brief the project â€” scope, timeline, referencesâ€¦" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} style={{ resize: 'vertical', fontFamily: 'var(--font-body)' }} />
                 </div>
                 <input type="text" name="_honey" style={{ display: 'none' }} tabIndex={-1} aria-hidden="true" />
                 <button type="submit" disabled={status === 'sending'} className="btn-gold" style={{ alignSelf: 'flex-start', padding: '14px 32px', opacity: status === 'sending' ? 0.7 : 1 }} aria-disabled={status === 'sending'}>
-                  {status === 'sending' ? 'Sending…' : 'Send Message'}
+                  {status === 'sending' ? 'Sendingâ€¦' : 'Send Message'}
                   {status !== 'sending' && (
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                       <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -146,10 +146,11 @@ export default function ContactClient() {
       <div className="container-site" style={{ marginTop: 'var(--space-8)', textAlign: 'center' }}>
         <div className="hairline" style={{ marginBottom: 'var(--space-5)' }} />
         <p style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--fs-h3)', fontWeight: 700, color: 'rgba(255,255,255,0.15)', letterSpacing: '-0.01em', textTransform: 'uppercase' }}>VISUAL POWER</p>
-        <p aria-hidden="true" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', letterSpacing: '0.28em', color: 'rgba(233,161,36,0.2)', marginTop: 8 }}>XN4LCO-43KS · 未来</p>
+        <p aria-hidden="true" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', letterSpacing: '0.28em', color: 'rgba(250,250,248,0.12)', marginTop: 8 }}>XN4LCO-43KS Â· æœªæ¥</p>
       </div>
 
       <style>{`@media(max-width:767px){.container-site>div[style*="5fr 7fr"]{grid-template-columns:1fr!important}}`}</style>
     </div>
   );
 }
+

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -44,14 +44,14 @@ export default function Nav() {
           transition: 'background 400ms ease, backdrop-filter 400ms ease',
           background: scrolled ? 'rgba(6,6,6,0.92)' : 'transparent',
           backdropFilter: scrolled ? 'blur(12px)' : 'none',
-          borderBottom: scrolled ? '1px solid rgba(233,161,36,0.12)' : '1px solid transparent',
+          borderBottom: scrolled ? '1px solid rgba(250,250,248,0.08)' : '1px solid transparent',
         }}
       >
         <div className="container-site" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 72 }}>
           {/* Logo / wordmark */}
           <Link
             href="/"
-            aria-label="Gabriele Carrozzini — Home"
+            aria-label="Gabriele Carrozzini â€” Home"
             style={{ textDecoration: 'none' }}
           >
             <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '1rem', color: 'var(--white)', letterSpacing: '-0.02em', lineHeight: 1, textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
@@ -78,7 +78,7 @@ export default function Nav() {
               ))}
             </ul>
 
-            {/* CTA — always visible */}
+            {/* CTA â€” always visible */}
             <Link href="/contact" className="btn-gold hidden-mobile" style={{ padding: '10px 20px', fontSize: '0.65rem' }}>
               Hire Me
             </Link>
@@ -170,3 +170,4 @@ export default function Nav() {
     </>
   );
 }
+

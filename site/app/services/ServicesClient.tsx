@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 import ScrollReveal from '@/components/ui/ScrollReveal';
@@ -10,8 +10,8 @@ const services = [
     description: 'Full-pipeline character creation: concept development, sculpting, texture, rigging-ready topology, and cinematic final renders. Dramatic low-key lighting, realistic skin and material work.',
     deliverables: ['Final renders (TIFF/EXR)', 'Turntable / pose set', 'Wireframe breakdown', 'PSD layered comp'],
     caseLink: '/work/v',
-    caseLabel: 'See V →',
-    accentColor: '#E9A124',
+    caseLabel: 'See V â†’',
+    accentColor: '#FFFFFF',
   },
   {
     index: '02',
@@ -19,25 +19,25 @@ const services = [
     description: 'Monumental poster compositions that command attention. Typographic systems, cinematic imagery, and the visual grammar of film and gaming marketing.',
     deliverables: ['Print-ready PDF (300dpi)', 'Digital version', 'Layered PSD', 'Format variations'],
     caseLink: '/work/lara',
-    caseLabel: 'See Lara →',
+    caseLabel: 'See Lara â†’',
     accentColor: '#8A4FFF',
   },
   {
     index: '03',
     title: 'Cover & Packaging Design',
-    description: 'Book covers, album art, product packaging — surfaces that live in physical space and need to hold attention on a shelf. Typography, hierarchy, and material finish guidance.',
+    description: 'Book covers, album art, product packaging â€” surfaces that live in physical space and need to hold attention on a shelf. Typography, hierarchy, and material finish guidance.',
     deliverables: ['Print-ready artwork', 'Mockup renders', 'Brand guidelines', 'Digital adaptation'],
     caseLink: '/work/turn-me-off',
-    caseLabel: 'See Turn Me Off →',
+    caseLabel: 'See Turn Me Off â†’',
     accentColor: '#D33127',
   },
   {
     index: '04',
     title: 'Advertising / Product Composition',
-    description: 'Brief, creatività e composizione. Product advertising that pairs warm, dynamic imagery with bold editorial type. Balance between image and text, emphasis on freshness and visual identity.',
+    description: 'Brief, creativitÃ  e composizione. Product advertising that pairs warm, dynamic imagery with bold editorial type. Balance between image and text, emphasis on freshness and visual identity.',
     deliverables: ['Key visual (various formats)', 'Outdoor adaptation', 'Digital banner set', 'Brand usage guide'],
     caseLink: '/work/fuji',
-    caseLabel: 'See Fuji →',
+    caseLabel: 'See Fuji â†’',
     accentColor: '#E8551F',
   },
   {
@@ -46,14 +46,14 @@ const services = [
     description: 'End-to-end visual direction for campaigns, characters, or brand systems. Mood, palette, type, motion direction.',
     deliverables: ['Creative brief', 'Mood boards', 'Style guide', 'Series direction'],
     caseLink: '/work',
-    caseLabel: 'See All Work →',
-    accentColor: '#E9A124',
+    caseLabel: 'See All Work â†’',
+    accentColor: '#FFFFFF',
   },
 ];
 
 const process = [
   { step: '01', label: 'Brief', description: 'You share scope, references, timeline, and goals. I ask the sharp questions.' },
-  { step: '02', label: 'Creatività', description: 'Concept development — mood boards, initial compositions, type explorations. One or two directions.' },
+  { step: '02', label: 'CreativitÃ ', description: 'Concept development â€” mood boards, initial compositions, type explorations. One or two directions.' },
   { step: '03', label: 'Composizione', description: 'Execution. 3D build, design, comp, render, refine. Regular checkpoints. Final delivery in agreed formats.' },
 ];
 
@@ -108,7 +108,7 @@ export default function ServicesClient() {
                       <ul role="list" style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 4, marginBottom: 'var(--space-3)' }}>
                         {svc.deliverables.map((d) => (
                           <li key={d} style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', letterSpacing: '0.08em', color: 'var(--gray-500)', display: 'flex', alignItems: 'center', gap: 6 }}>
-                            <span style={{ color: svc.accentColor }} aria-hidden="true">—</span>
+                            <span style={{ color: svc.accentColor }} aria-hidden="true">â€”</span>
                             {d}
                           </li>
                         ))}
@@ -134,7 +134,7 @@ export default function ServicesClient() {
           <ScrollReveal style={{ marginBottom: 'var(--space-5)' }}>
             <span className="label-gold" style={{ display: 'block', marginBottom: 'var(--space-2)' }}>Process</span>
             <h2 id="process-heading" style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--fs-h2)', fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--white)', lineHeight: 1.05, textTransform: 'uppercase' }}>
-              Brief → Creatività<br />→ Composizione
+              Brief â†’ CreativitÃ <br />â†’ Composizione
             </h2>
           </ScrollReveal>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--space-4)' }}>
@@ -202,3 +202,4 @@ export default function ServicesClient() {
     </div>
   );
 }
+

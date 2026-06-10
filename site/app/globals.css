@@ -1,24 +1,24 @@
-@import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap');
+﻿@import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap');
 @import "tailwindcss";
 
-/* ─── Design System Tokens ─────────────────────────────── */
+/* â”€â”€â”€ Design System Tokens â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 :root {
-  /* Color — brand */
+  /* Color â€” brand */
   --black-900: #060606;
   --black-800: #0C0B0A;
-  --gold-500:  #E9A124;
-  --gold-600:  #C8851A;
-  --gold-300:  #F3C36B;
+  --gold-500:  #FFFFFF;
+  --gold-600:  #D4D4D0;
+  --gold-300:  #F8F8F6;
 
-  /* Color — neutral */
+  /* Color â€” neutral */
   --white:       #FAFAF8;
   --silver-400:  #C9CDD2;
   --gray-500:    #8A8A8A;
   --gray-700:    #3A3A3A;
-  --line:        rgba(233,161,36,.18);
+  --line:        rgba(250,250,248,.12);
 
-  /* Color — project accents (swap per case study) */
-  --project-accent: #E9A124;
+  /* Color â€” project accents (swap per case study) */
+  --project-accent: #FFFFFF;
   --violet-500:  #8A4FFF;
   --red-500:     #D33127;
   --orange-start:#E8551F;
@@ -54,7 +54,7 @@
   --dur-fast: 200ms;
 }
 
-/* ─── Tailwind v4 Theme Integration ─────────────────────── */
+/* â”€â”€â”€ Tailwind v4 Theme Integration â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @theme inline {
   --color-black-900:   var(--black-900);
   --color-black-800:   var(--black-800);
@@ -76,7 +76,7 @@
   --ease-cinematic: var(--ease-cinematic);
 }
 
-/* ─── Base Reset ────────────────────────────────────────── */
+/* â”€â”€â”€ Base Reset â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -100,7 +100,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ─── Typography Base ───────────────────────────────────── */
+/* â”€â”€â”€ Typography Base â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 700;
@@ -133,32 +133,32 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--gold-500);
 }
 
-/* ─── Focus Styles (Accessibility) ─────────────────────── */
+/* â”€â”€â”€ Focus Styles (Accessibility) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 :focus-visible {
   outline: 2px solid var(--gold-500);
   outline-offset: 3px;
   border-radius: 2px;
 }
 
-/* ─── Selection ─────────────────────────────────────────── */
+/* â”€â”€â”€ Selection â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 ::selection {
   background-color: var(--gold-500);
   color: var(--black-900);
 }
 
-/* ─── Scrollbar ─────────────────────────────────────────── */
+/* â”€â”€â”€ Scrollbar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 ::-webkit-scrollbar { width: 4px; height: 4px; }
 ::-webkit-scrollbar-track { background: var(--black-900); }
 ::-webkit-scrollbar-thumb { background: var(--gray-700); border-radius: 2px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--gold-500); }
 
-/* ─── Gold Hairline ─────────────────────────────────────── */
+/* â”€â”€â”€ Gold Hairline â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .hairline {
   height: 1px;
   background: var(--line);
 }
 
-/* ─── Caption Motif ─────────────────────────────────────── */
+/* â”€â”€â”€ Caption Motif â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .caption-motif {
   display: flex;
   align-items: center;
@@ -176,7 +176,7 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--line);
 }
 
-/* ─── Section Spacing ───────────────────────────────────── */
+/* â”€â”€â”€ Section Spacing â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .section {
   padding-top: var(--space-7);
   padding-bottom: var(--space-7);
@@ -186,7 +186,7 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: var(--space-8);
 }
 
-/* ─── Container ─────────────────────────────────────────── */
+/* â”€â”€â”€ Container â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .container-site {
   width: 100%;
   max-width: 1440px;
@@ -202,7 +202,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* ─── Gold Button ───────────────────────────────────────── */
+/* â”€â”€â”€ Gold Button â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .btn-gold {
   display: inline-flex;
   align-items: center;
@@ -252,7 +252,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .btn-ghost:hover { border-color: var(--gold-500); color: var(--gold-500); }
 
-/* ─── Project Card ──────────────────────────────────────── */
+/* â”€â”€â”€ Project Card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .project-card {
   position: relative;
   display: block;
@@ -302,7 +302,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--project-accent);
 }
 
-/* ─── Glitch Hover Effect ───────────────────────────────── */
+/* â”€â”€â”€ Glitch Hover Effect â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (prefers-reduced-motion: no-preference) {
   .glitch-hover:hover {
     animation: glitch-subtle 200ms ease-in-out;
@@ -315,7 +315,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* ─── Vignette Overlay ──────────────────────────────────── */
+/* â”€â”€â”€ Vignette Overlay â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .vignette::after {
   content: '';
   position: absolute;
@@ -325,7 +325,7 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1;
 }
 
-/* ─── HUD Grid Overlay ──────────────────────────────────── */
+/* â”€â”€â”€ HUD Grid Overlay â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .hud-overlay {
   position: absolute;
   inset: 0;
@@ -344,7 +344,7 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0.3;
 }
 
-/* ─── Noise/Grain Overlay ───────────────────────────────── */
+/* â”€â”€â”€ Noise/Grain Overlay â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .noise::after {
   content: '';
   position: absolute;
@@ -368,7 +368,7 @@ h1, h2, h3, h4, h5, h6 {
   .noise::after { animation: none; }
 }
 
-/* ─── Circuit Lines (V Project Art) ────────────────────── */
+/* â”€â”€â”€ Circuit Lines (V Project Art) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .circuit-art {
   position: absolute;
   inset: 0;
@@ -379,7 +379,7 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0.06;
 }
 
-/* ─── Scanlines (Turn Me Off Art) ──────────────────────── */
+/* â”€â”€â”€ Scanlines (Turn Me Off Art) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .scanlines {
   background-image: repeating-linear-gradient(
     0deg,
@@ -390,7 +390,7 @@ h1, h2, h3, h4, h5, h6 {
   );
 }
 
-/* ─── Skip Link ─────────────────────────────────────────── */
+/* â”€â”€â”€ Skip Link â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .skip-link {
   position: absolute;
   top: -48px;
@@ -410,12 +410,12 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
 }
 
-/* ─── Server-safe Hover States (CSS-only, no JS event handlers) ── */
+/* â”€â”€â”€ Server-safe Hover States (CSS-only, no JS event handlers) â”€â”€ */
 .capability-card { border: 1px solid var(--line); transition: border-color 300ms ease; }
-.capability-card:hover { border-color: rgba(233,161,36,0.4); }
+.capability-card:hover { border-color: rgba(250,250,248,0.2); }
 
 .service-card { transition: border-color 300ms ease; }
-.service-card:hover { border-color: rgba(233,161,36,0.3); }
+.service-card:hover { border-color: rgba(250,250,248,0.15); }
 
 .next-project-link { transition: color 200ms ease; }
 .next-project-link:hover { color: var(--project-accent, var(--gold-500)); }
@@ -425,7 +425,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-social:hover { color: var(--gold-500); }
 
-/* ─── Reduced Motion ────────────────────────────────────── */
+/* â”€â”€â”€ Reduced Motion â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -435,7 +435,7 @@ h1, h2, h3, h4, h5, h6 {
   html { scroll-behavior: auto; }
 }
 
-/* ─── Nav ───────────────────────────────────────────────── */
+/* â”€â”€â”€ Nav â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .nav-link {
   font-family: var(--font-mono);
   font-size: var(--fs-label);
@@ -461,7 +461,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav-link:hover::after { width: 100%; }
 .nav-link.active { color: var(--gold-500); }
 
-/* ─── Lightbox ──────────────────────────────────────────── */
+/* â”€â”€â”€ Lightbox â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .lightbox-overlay {
   position: fixed;
   inset: 0;
@@ -472,7 +472,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
 }
 
-/* ─── Horizontal Scroll Strip ───────────────────────────── */
+/* â”€â”€â”€ Horizontal Scroll Strip â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .scroll-strip {
   display: flex;
   gap: var(--space-3);
@@ -483,7 +483,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .scroll-strip::-webkit-scrollbar { display: none; }
 
-/* ─── Form Inputs ───────────────────────────────────────── */
+/* â”€â”€â”€ Form Inputs â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .form-input {
   width: 100%;
   background: transparent;
@@ -501,13 +501,13 @@ h1, h2, h3, h4, h5, h6 {
 .form-input:focus { border-color: var(--gold-500); }
 .form-input::placeholder { color: var(--gray-700); }
 
-/* ─── Project Accent Classes ────────────────────────────── */
+/* â”€â”€â”€ Project Accent Classes â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .accent-gold   { --project-accent: var(--gold-500); }
 .accent-violet { --project-accent: var(--violet-500); }
 .accent-red    { --project-accent: var(--red-500); }
 .accent-orange { --project-accent: var(--orange-start); }
 
-/* ─── Clip Path Reveals ─────────────────────────────────── */
+/* â”€â”€â”€ Clip Path Reveals â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .clip-reveal-ready {
   clip-path: inset(0 100% 0 0);
 }
@@ -516,14 +516,14 @@ h1, h2, h3, h4, h5, h6 {
   transition: clip-path var(--dur-reveal) var(--ease-cinematic);
 }
 
-/* ─── WorkGallery grid responsive ──────────────────────── */
+/* â”€â”€â”€ WorkGallery grid responsive â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 640px) {
   .work-gallery-grid {
     grid-template-columns: 1fr !important;
   }
 }
 
-/* ─── Image hover scale utility ─────────────────────────── */
+/* â”€â”€â”€ Image hover scale utility â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .img-hover-scale {
   transition: transform 700ms var(--ease-cinematic);
 }
@@ -531,7 +531,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.05);
 }
 
-/* ─── Stagger children ──────────────────────────────────── */
+/* â”€â”€â”€ Stagger children â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .stagger > * { --stagger-i: 0; }
 .stagger > *:nth-child(1) { --stagger-i: 0; }
 .stagger > *:nth-child(2) { --stagger-i: 1; }
@@ -540,7 +540,7 @@ h1, h2, h3, h4, h5, h6 {
 .stagger > *:nth-child(5) { --stagger-i: 4; }
 .stagger > *:nth-child(6) { --stagger-i: 5; }
 
-/* ─── Page transition wrapper ───────────────────────────── */
+/* â”€â”€â”€ Page transition wrapper â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .page-enter {
   animation: pageEnter 0.6s var(--ease-cinematic) both;
 }
@@ -549,7 +549,7 @@ h1, h2, h3, h4, h5, h6 {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ─── Gold line accent ──────────────────────────────────── */
+/* â”€â”€â”€ Gold line accent â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .accent-line {
   display: inline-block;
   width: 40px;
@@ -559,7 +559,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-right: var(--space-3);
 }
 
-/* ─── Character float keyframes ─────────────────────────── */
+/* â”€â”€â”€ Character float keyframes â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50%       { transform: translateY(-20px); }
@@ -571,7 +571,7 @@ h1, h2, h3, h4, h5, h6 {
   .float { animation: none; }
 }
 
-/* ─── Ambient glow pulse ────────────────────────────────── */
+/* â”€â”€â”€ Ambient glow pulse â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @keyframes glowPulse {
   0%, 100% { opacity: 0.12; }
   50%       { opacity: 0.22; }
@@ -580,13 +580,13 @@ h1, h2, h3, h4, h5, h6 {
   animation: glowPulse 4s ease-in-out infinite;
 }
 
-/* ─── Card image zoom on hover (CSS-only) ───────────────── */
+/* â”€â”€â”€ Card image zoom on hover (CSS-only) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .card-media:hover .card-media-inner {
   transform: scale(1.05);
 }
 
 
-/* ─── Text Gradient (Silver/Gold) ───────────────────────── */
+/* â”€â”€â”€ Text Gradient (Silver/Gold) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .text-silver-gradient {
   background: linear-gradient(135deg, var(--white) 0%, var(--silver-400) 100%);
   -webkit-background-clip: text;
@@ -599,3 +599,4 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
