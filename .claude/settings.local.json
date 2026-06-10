@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(cd \"C:\\\\Users\\\\Utente\\\\Desktop\\\\portfolio\\\\site\"; $env:NODE_ENV=\"development\"; node_modules\\\\.bin\\\\next dev --port 3000 2>&1 | Select-Object -First 3)",
+      "WebFetch(domain:jago.art)",
+      "PowerShell(python -c \"import importlib; pkgs = ['PIL','pillow','pdf2image','fitz','PyMuPDF']; [print\\(f'FOUND: {p}'\\) if importlib.util.find_spec\\(p.lower\\(\\)\\) else print\\(f'MISSING: {p}'\\) for p in pkgs]\" 2>&1)",
+      "PowerShell(npm install *)",
+      "Bash(git add *)"
+    ]
+  }
+}
