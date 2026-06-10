@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Hero from '@/components/home/Hero';
-import ScrollingStrip from '@/components/home/ScrollingStrip';
+import BentoSection from '@/components/home/BentoSection';
 import Capabilities from '@/components/home/Capabilities';
 import WorkGallery from '@/components/home/WorkGallery';
 import AboutTeaser from '@/components/home/AboutTeaser';
@@ -17,7 +17,7 @@ export default function HomePage() {
     <>
       <a href="#main-content" className="skip-link">Skip to content</a>
       <Hero />
-      <ScrollingStrip />
+      <BentoSection />
       <Capabilities />
       <WorkGallery />
       <AboutTeaser />
