@@ -166,7 +166,7 @@ export default function Hero() {
         {/* ── Layer 1: Ken Burns cycling background ─────────── */}
         <motion.div
           aria-hidden="true"
-          style={{ position: 'absolute', inset: 0, y: bgY, zIndex: 1 }}
+          style={{ position: 'absolute', inset: 0, y: bgY, zIndex: 1, willChange: 'transform' }}
         >
           <AnimatePresence mode="sync">
             <motion.div
@@ -205,7 +205,7 @@ export default function Hero() {
 
         {/* ── Layer 2: Text content ─────────────────────────── */}
         <motion.div
-          style={{ y: contentY, position: 'relative', zIndex: 10, width: '100%' }}
+          style={{ y: contentY, position: 'relative', zIndex: 10, width: '100%', willChange: 'transform' }}
         >
           <div
             className="container-site"

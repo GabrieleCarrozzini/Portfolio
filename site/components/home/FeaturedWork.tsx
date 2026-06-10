@@ -257,25 +257,23 @@ export default function FeaturedWork() {
       {/* ── Section header ── */}
       <div className="container-site" style={{ marginBottom: 'var(--space-5)' }}>
         <ScrollReveal>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 'var(--space-3)' }}>
-            <div>
-              <span className="label-gold" style={{ display: 'block', marginBottom: 'var(--space-2)' }}>Featured</span>
-              <h2
-                id="featured-heading"
-                style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: 'var(--fs-h1)',
-                  fontWeight: 700,
-                  letterSpacing: '-0.02em',
-                  color: 'var(--white)',
-                  lineHeight: 1,
-                  textTransform: 'uppercase',
-                }}
-              >
-                Selected Work
-              </h2>
-            </div>
-            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', letterSpacing: '0.16em', color: 'var(--gray-500)', textTransform: 'uppercase', maxWidth: '28ch', textAlign: 'right' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: 'var(--space-2)' }}>
+            <span className="label-gold" style={{ display: 'block', marginBottom: 'var(--space-2)' }}>Featured</span>
+            <h2
+              id="featured-heading"
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: 'var(--fs-h1)',
+                fontWeight: 700,
+                letterSpacing: '-0.02em',
+                color: 'var(--white)',
+                lineHeight: 1,
+                textTransform: 'uppercase',
+              }}
+            >
+              Selected Work
+            </h2>
+            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', letterSpacing: '0.16em', color: 'var(--gray-500)', textTransform: 'uppercase' }}>
               Hover to preview · click to open case study
             </p>
           </div>
