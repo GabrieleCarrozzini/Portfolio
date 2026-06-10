@@ -58,7 +58,7 @@ function IntroOverlay() {
         </div>
 
         {/* CARROZZINI — slides up 0.15s later */}
-        <div style={{ overflow: 'hidden', lineHeight: 0.85, marginTop: '0.06em' }}>
+        <div style={{ overflow: 'hidden', lineHeight: 0.95, marginTop: '0.06em' }}>
           <motion.div
             initial={{ y: '115%', opacity: 0 }}
             animate={{ y: '0%',   opacity: 1 }}
@@ -211,21 +211,19 @@ export default function Hero() {
             className="container-site"
             style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-8)' }}
           >
-            <div style={{ maxWidth: 'clamp(340px, 58vw, 820px)' }}>
-
               {/* Role label */}
               {mounted && (
                 <motion.div
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.05, ease: easing }}
-                  style={{ marginBottom: 'var(--space-4)' }}
+                  style={{ marginBottom: 'var(--space-4)', maxWidth: 'clamp(340px, 58vw, 820px)' }}
                 >
                   <span className="label-gold">Visual Designer · Rome, Italy</span>
                 </motion.div>
               )}
 
-              {/* ── Name headline — JAGO-style reveal ── */}
+              {/* ── Name headline — JAGO-style reveal — no maxWidth so CARROZZINI never clips ── */}
               <h1
                 aria-label="Gabriele Carrozzini — Visual Designer portfolio"
                 style={{
@@ -236,10 +234,11 @@ export default function Hero() {
                   letterSpacing: '-0.04em',
                   textTransform: 'uppercase',
                   marginBottom: 'var(--space-5)',
+                  overflow: 'visible',
                 }}
               >
                 {/* GABRIELE */}
-                <span style={{ display: 'block', overflow: 'hidden', lineHeight: 0.9 }}>
+                <span style={{ display: 'block', overflow: 'hidden', lineHeight: 0.95 }}>
                   {mounted ? (
                     <motion.span
                       initial={{ y: '110%' }}
@@ -254,7 +253,7 @@ export default function Hero() {
                   )}
                 </span>
                 {/* CARROZZINI */}
-                <span style={{ display: 'block', overflow: 'hidden', lineHeight: 0.9 }}>
+                <span style={{ display: 'block', overflow: 'hidden', lineHeight: 0.95 }}>
                   {mounted ? (
                     <motion.span
                       initial={{ y: '110%' }}
@@ -270,54 +269,54 @@ export default function Hero() {
                 </span>
               </h1>
 
-              {/* Tagline */}
-              {mounted ? (
-                <motion.p
-                  initial={{ opacity: 0, y: 14 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.52, ease: easing }}
-                  style={{
-                    fontFamily: 'var(--font-body)',
-                    fontSize: 'var(--fs-body)',
-                    color: 'var(--gray-500)',
-                    maxWidth: 380,
-                    lineHeight: 1.65,
-                    marginBottom: 'var(--space-6)',
-                    fontStyle: 'italic',
-                  }}
-                >
-                  Design should communicate before it decorates.
-                </motion.p>
-              ) : (
-                <p style={{ fontFamily: 'var(--font-body)', fontSize: 'var(--fs-body)', color: 'var(--gray-500)', maxWidth: 380, lineHeight: 1.65, marginBottom: 'var(--space-6)', fontStyle: 'italic' }}>
-                  Design should communicate before it decorates.
-                </p>
-              )}
+              {/* Tagline + CTAs — constrained width */}
+              <div style={{ maxWidth: 'clamp(340px, 58vw, 820px)' }}>
+                {mounted ? (
+                  <motion.p
+                    initial={{ opacity: 0, y: 14 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.52, ease: easing }}
+                    style={{
+                      fontFamily: 'var(--font-body)',
+                      fontSize: 'var(--fs-body)',
+                      color: 'var(--gray-500)',
+                      maxWidth: 380,
+                      lineHeight: 1.65,
+                      marginBottom: 'var(--space-6)',
+                      fontStyle: 'italic',
+                    }}
+                  >
+                    Design should communicate before it decorates.
+                  </motion.p>
+                ) : (
+                  <p style={{ fontFamily: 'var(--font-body)', fontSize: 'var(--fs-body)', color: 'var(--gray-500)', maxWidth: 380, lineHeight: 1.65, marginBottom: 'var(--space-6)', fontStyle: 'italic' }}>
+                    Design should communicate before it decorates.
+                  </p>
+                )}
 
-              {/* CTAs */}
-              {mounted ? (
-                <motion.div
-                  initial={{ opacity: 0, y: 14 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.55, delay: 0.68, ease: easing }}
-                  style={{ display: 'flex', gap: 'var(--space-3)', flexWrap: 'wrap', alignItems: 'center' }}
-                >
-                  <Link href="/work" className="btn-gold">
-                    View Work
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                      <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </Link>
-                  <Link href="/contact" className="btn-ghost">Start a Project</Link>
-                </motion.div>
-              ) : (
-                <div style={{ display: 'flex', gap: 'var(--space-3)', flexWrap: 'wrap' }}>
-                  <Link href="/work" className="btn-gold">View Work</Link>
-                  <Link href="/contact" className="btn-ghost">Start a Project</Link>
-                </div>
-              )}
-
-            </div>
+                {/* CTAs */}
+                {mounted ? (
+                  <motion.div
+                    initial={{ opacity: 0, y: 14 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.55, delay: 0.68, ease: easing }}
+                    style={{ display: 'flex', gap: 'var(--space-3)', flexWrap: 'wrap', alignItems: 'center' }}
+                  >
+                    <Link href="/work" className="btn-gold">
+                      View Work
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                        <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </Link>
+                    <Link href="/contact" className="btn-ghost">Start a Project</Link>
+                  </motion.div>
+                ) : (
+                  <div style={{ display: 'flex', gap: 'var(--space-3)', flexWrap: 'wrap' }}>
+                    <Link href="/work" className="btn-gold">View Work</Link>
+                    <Link href="/contact" className="btn-ghost">Start a Project</Link>
+                  </div>
+                )}
+              </div>
           </div>
         </motion.div>
 

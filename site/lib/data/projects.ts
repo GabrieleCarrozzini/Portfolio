@@ -30,6 +30,8 @@ export interface Project {
   processCopy?: string;
   processLabels?: { label: string; value: string }[];
   gallery?: GalleryImage[];
+  /** 'portrait' = 2-col tall grid, contain; default = 3-col square, cover */
+  galleryLayout?: 'portrait' | 'grid';
 }
 
 export const projects: Project[] = [
@@ -180,7 +182,7 @@ export const projects: Project[] = [
       'A cover design concept for a psychological thriller exploring digital surveillance. The CRT eye motif and chromatic glitch title treatment evoke the horror of being watched. This is a personal concept study using the Netflix visual language for educational purposes.',
     role: 'Cover Design · Typography · Art Direction',
     tags: ['Cover Design', 'Concept', 'Typography', 'Glitch'],
-    nextSlug: 'songbird',
+    nextSlug: 'neon-sessions',
     featured: true,
     order: 5,
     heroImage: '/projects/turn-me-off/hero.png',
@@ -194,19 +196,19 @@ export const projects: Project[] = [
     ],
   },
 
-  // ── SONGBIRD — BLUE LIGHT SESSIONS ───────────────────────────────────────
+  // ── NEON SESSIONS — BLUE LIGHT PORTRAITS ─────────────────────────────────
   {
-    slug: 'songbird',
-    title: 'Songbird',
+    slug: 'neon-sessions',
+    title: 'Neon Sessions',
     year: '2024',
-    type: 'Blue Light Portrait · Character Series',
+    type: 'Portrait Sessions · Neon Light',
     status: 'original',
     statusLabel: 'Original Work',
     accent: 'violet',
     accentColor: '#8A4FFF',
     tagline: 'Light sculpted into identity.',
     description:
-      'Two portrait sessions exploring the Songbird character through neon blue and magenta lighting — vivid colour temperature, blue hair, cybernetic aesthetics. Different moods, same visual world: cool, electric, and intimate.',
+      'Two portrait sessions exploring a cybernetic character through neon blue and magenta lighting — vivid colour temperature, blue hair, electric atmosphere. Different moods, same visual world: cool, intimate, and electric.',
     role: '3D Character Art · Lighting · Rendering · Compositing',
     tags: ['3D Character', 'Portrait', 'Blue Light', 'Neon'],
     nextSlug: 'somi',
@@ -215,12 +217,13 @@ export const projects: Project[] = [
     heroImage: '/projects/songbird/gallery-01.png',
     cardImage: '/projects/songbird/gallery-01.png',
     focalPoint: '50% 22%',
+    galleryLayout: 'portrait',
     gallery: [
-      { index: '01', alt: 'Songbird — blue gradient portrait cutout, platinum hair, soft blue light',     colorClass: 'songbird-gallery-1', src: '/projects/songbird/gallery-01.png' },
-      { index: '02', alt: 'Songbird — July 15 session, arms crossed, strong blue rim light',              colorClass: 'songbird-gallery-2', src: '/projects/songbird/gallery-04.png' },
-      { index: '03', alt: 'Songbird — July 15 session, cigarette, editorial blue atmosphere',             colorClass: 'songbird-gallery-3', src: '/projects/songbird/gallery-05.png' },
-      { index: '04', alt: 'Songbird — July 14 session, vivid blue hair close-up',                        colorClass: 'songbird-gallery-4', src: '/projects/songbird/gallery-06.png' },
-      { index: '05', alt: 'Songbird — July 14 session, blue hair, hand gesture, magenta lighting',       colorClass: 'songbird-gallery-5', src: '/projects/songbird/gallery-07.png' },
+      { index: '01', alt: 'Neon Sessions — blue gradient portrait cutout, platinum hair, soft blue light',     colorClass: 'songbird-gallery-1', src: '/projects/songbird/gallery-01.png' },
+      { index: '02', alt: 'Neon Sessions — July 15 session, arms crossed, strong blue rim light',              colorClass: 'songbird-gallery-2', src: '/projects/songbird/gallery-04.png' },
+      { index: '03', alt: 'Neon Sessions — July 15 session, cigarette, editorial blue atmosphere',             colorClass: 'songbird-gallery-3', src: '/projects/songbird/gallery-05.png' },
+      { index: '04', alt: 'Neon Sessions — July 14 session, vivid blue hair close-up',                        colorClass: 'songbird-gallery-4', src: '/projects/songbird/gallery-06.png' },
+      { index: '05', alt: 'Neon Sessions — July 14 session, blue hair, hand gesture, magenta lighting',       colorClass: 'songbird-gallery-5', src: '/projects/songbird/gallery-07.png' },
     ],
   },
 

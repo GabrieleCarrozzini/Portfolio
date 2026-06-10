@@ -36,7 +36,11 @@ export default function GalleryRow({ project }: GalleryRowProps) {
 
         <div
           role="list"
-          style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--space-3)' }}
+          style={{
+            display: 'grid',
+            gridTemplateColumns: project.galleryLayout === 'portrait' ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)',
+            gap: 'var(--space-3)',
+          }}
           aria-label={`${project.title} gallery`}
         >
           {gallery.map((item, i) => (
@@ -45,7 +49,8 @@ export default function GalleryRow({ project }: GalleryRowProps) {
                 onClick={() => openLightbox(i)}
                 aria-label={`Open image ${item.index}: ${item.alt}`}
                 style={{
-                  position: 'relative', width: '100%', aspectRatio: '1/1',
+                  position: 'relative', width: '100%',
+                  aspectRatio: project.galleryLayout === 'portrait' ? '2/3' : '1/1',
                   background: 'var(--black-800)', border: '1px solid var(--line)',
                   cursor: 'pointer', overflow: 'hidden', padding: 0, display: 'block',
                   transition: 'border-color 200ms ease',
@@ -58,8 +63,11 @@ export default function GalleryRow({ project }: GalleryRowProps) {
                   src={item.src}
                   alt={item.alt}
                   fill
-                  sizes="(max-width: 768px) 50vw, 33vw"
-                  style={{ objectFit: 'cover', objectPosition: 'center top' }}
+                  sizes={project.galleryLayout === 'portrait' ? '(max-width: 768px) 50vw, 50vw' : '(max-width: 768px) 50vw, 33vw'}
+                  style={{
+                    objectFit: project.galleryLayout === 'portrait' ? 'contain' : 'cover',
+                    objectPosition: 'center top',
+                  }}
                 />
                 {/* Index */}
                 <div style={{
@@ -137,6 +145,7 @@ export default function GalleryRow({ project }: GalleryRowProps) {
         @media (max-width: 768px) { [aria-label$="gallery"] { grid-template-columns: repeat(2, 1fr) !important; } }
         @media (max-width: 480px) { [aria-label$="gallery"] { grid-template-columns: 1fr !important; } }
       `}</style>
+
     </section>
   );
 }

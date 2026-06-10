@@ -126,14 +126,24 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
             <ScrollReveal>
               <div
                 aria-label={`${project.title} showcase — ${showcaseMain.alt}`}
-                style={{ position: 'relative', width: '100%', aspectRatio: '4/3', overflow: 'hidden', border: '1px solid var(--line)' }}
+                style={{
+                  position: 'relative', width: '100%',
+                  aspectRatio: project.galleryLayout === 'portrait' ? '2/3' : '4/3',
+                  overflow: 'hidden', border: '1px solid var(--line)',
+                  background: 'var(--black-800)',
+                  maxWidth: project.galleryLayout === 'portrait' ? '480px' : undefined,
+                  margin: project.galleryLayout === 'portrait' ? '0 auto' : undefined,
+                }}
               >
                 <Image
                   src={showcaseMain.src}
                   alt={showcaseMain.alt}
                   fill
                   sizes="(max-width: 1200px) 100vw, 1200px"
-                  style={{ objectFit: 'cover', objectPosition: project.focalPoint ?? 'center top' }}
+                  style={{
+                    objectFit: project.galleryLayout === 'portrait' ? 'contain' : 'cover',
+                    objectPosition: project.focalPoint ?? 'center top',
+                  }}
                 />
               </div>
             </ScrollReveal>
@@ -147,7 +157,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
           </ScrollReveal>
 
           {/* Mockup pair — only if we have at least 2 gallery images */}
-          {mockupA && (
+          {mockupA && project.galleryLayout !== 'portrait' && (
             <ScrollReveal delay={0.1} style={{ marginTop: 'var(--space-5)', display: 'grid', gridTemplateColumns: mockupB ? '1fr 1fr' : '1fr', gap: 'var(--space-3)' }}>
               <div
                 aria-label={mockupA.alt}
