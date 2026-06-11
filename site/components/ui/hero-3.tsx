@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -20,29 +20,70 @@ const ActionButton = ({
 }: {
   children: React.ReactNode;
   href?: string;
-}) => (
-  <motion.a
-    href={href ?? "/work"}
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-    style={{
-      display: "inline-block",
-      marginTop: "2rem",
-      padding: "12px 32px",
-      background: "transparent",
-      border: "1px solid var(--white)",
-      color: "var(--white)",
-      fontFamily: "var(--font-mono)",
-      fontSize: "var(--fs-label)",
-      letterSpacing: "var(--tracking-label)",
-      textTransform: "uppercase",
-      textDecoration: "none",
-      cursor: "pointer",
-    }}
-  >
-    {children}
-  </motion.a>
-);
+}) => {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <motion.a
+      href={href ?? "/work"}
+      onHoverStart={() => setHovered(true)}
+      onHoverEnd={() => setHovered(false)}
+      whileTap={{ scale: 0.97 }}
+      style={{
+        position: "relative",
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 10,
+        marginTop: "2rem",
+        padding: "14px 40px",
+        overflow: "hidden",
+        border: "1px solid rgba(250,250,248,0.65)",
+        fontFamily: "var(--font-mono)",
+        fontSize: "var(--fs-label)",
+        letterSpacing: "var(--tracking-label)",
+        textTransform: "uppercase",
+        textDecoration: "none",
+        cursor: "pointer",
+      }}
+    >
+      {/* Sliding fill */}
+      <motion.span
+        initial={false}
+        animate={{ x: hovered ? "0%" : "-101%" }}
+        transition={{ duration: 0.38, ease: [0.76, 0, 0.24, 1] }}
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: "var(--white)",
+          zIndex: 0,
+        }}
+      />
+      {/* Label */}
+      <motion.span
+        animate={{ color: hovered ? "#060606" : "#FAFAF8" }}
+        transition={{ duration: 0.05, delay: hovered ? 0.22 : 0 }}
+        style={{ position: "relative", zIndex: 1 }}
+      >
+        {children}
+      </motion.span>
+      {/* Arrow */}
+      <motion.span
+        animate={{
+          x: hovered ? 5 : 0,
+          color: hovered ? "#060606" : "#FAFAF8",
+        }}
+        transition={{
+          x: { duration: 0.22, ease: "easeOut" },
+          color: { duration: 0.05, delay: hovered ? 0.22 : 0 },
+        }}
+        aria-hidden="true"
+        style={{ position: "relative", zIndex: 1, lineHeight: 1 }}
+      >
+        →
+      </motion.span>
+    </motion.a>
+  );
+};
 
 export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
   tagline,

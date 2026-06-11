@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -51,12 +52,23 @@ export default function Nav() {
           {/* Logo / wordmark */}
           <Link
             href="/"
-            aria-label="Gabriele Carrozzini â€” Home"
-            style={{ textDecoration: 'none' }}
+            aria-label="Gabriele Carrozzini - Home"
+            style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}
           >
-            <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '1rem', color: 'var(--white)', letterSpacing: '-0.02em', lineHeight: 1, textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
-              GABRIELE CARROZZINI
-            </span>
+            <Image
+              src="/logo-nav.png"
+              alt="Gabriele Carrozzini"
+              width={324}
+              height={108}
+              priority
+              style={{
+                height: 34,
+                width: 'auto',
+                filter: 'invert(1)',
+                display: 'block',
+                userSelect: 'none',
+              }}
+            />
           </Link>
 
           {/* Desktop nav */}
@@ -78,7 +90,7 @@ export default function Nav() {
               ))}
             </ul>
 
-            {/* CTA â€” always visible */}
+            {/* CTA â€" always visible */}
             <Link href="/contact" className="btn-gold hidden-mobile" style={{ padding: '10px 20px', fontSize: '0.65rem' }}>
               Hire Me
             </Link>
