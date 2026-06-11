@@ -1,7 +1,6 @@
 'use client';
 
-import { useEffect, useRef, HTMLAttributes } from 'react';
-import { motion, useInView, useAnimation, Variants } from 'framer-motion';
+import { useRef, useEffect, useState, HTMLAttributes } from 'react';
 
 interface ScrollRevealProps extends HTMLAttributes<HTMLDivElement> {
   delay?: number;
@@ -10,56 +9,57 @@ interface ScrollRevealProps extends HTMLAttributes<HTMLDivElement> {
   distance?: number;
 }
 
-const makeVariants = (direction: string, distance: number): Variants => ({
-  hidden: {
-    opacity: 0,
-    y:       direction === 'up'    ? distance : 0,
-    x:       direction === 'left'  ? -distance
-           : direction === 'right' ?  distance : 0,
-    scale:   direction === 'none'  ? 1 : 0.97,
-  },
-  visible: { opacity: 1, y: 0, x: 0, scale: 1 },
-});
-
 export default function ScrollReveal({
   children,
   className,
   style,
   delay = 0,
   direction = 'up',
-  distance = 52,
+  distance = 40,
   once = true,
   ...rest
 }: ScrollRevealProps) {
-  const ref      = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once, margin: '-8% 0px' });
-  const controls = useAnimation();
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    if (isInView) {
-      controls.start('visible');
-    } else if (!once) {
-      controls.start('hidden');
-    }
-  }, [isInView, controls, once]);
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          if (once) observer.disconnect();
+        } else if (!once) {
+          setVisible(false);
+        }
+      },
+      { rootMargin: '-8% 0px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [once]);
+
+  const hiddenTransform =
+    direction === 'up'    ? `translateY(${distance}px)` :
+    direction === 'left'  ? `translateX(-${distance}px)` :
+    direction === 'right' ? `translateX(${distance}px)` :
+    'none';
 
   return (
-    <motion.div
+    <div
       ref={ref}
       className={className}
-      style={style}
-      initial="hidden"
-      animate={controls}
-      variants={makeVariants(direction, distance)}
-      transition={{
-        duration: 0.85,
-        delay,
-        ease: [0.16, 1, 0.3, 1],
-        scale: { duration: 0.85 },
+      style={{
+        ...style,
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'none' : hiddenTransform,
+        transition: `opacity 0.75s cubic-bezier(0.16,1,0.3,1) ${delay}s, transform 0.75s cubic-bezier(0.16,1,0.3,1) ${delay}s`,
+        willChange: visible ? 'auto' : 'opacity, transform',
       }}
       {...(rest as Record<string, unknown>)}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }

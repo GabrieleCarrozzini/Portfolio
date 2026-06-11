@@ -156,10 +156,12 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
             "linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)",
           maskImage:
             "linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)",
+          contain: "layout style",
         }}
       >
         <motion.div
           className="flex gap-4"
+          style={{ willChange: "transform" }}
           animate={{
             x: ["-100%", "0%"],
             transition: {

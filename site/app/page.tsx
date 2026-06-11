@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Hero from '@/components/home/Hero';
 import BentoSection from '@/components/home/BentoSection';
 import Capabilities from '@/components/home/Capabilities';
-import WorkGallery from '@/components/home/WorkGallery';
 import AboutTeaser from '@/components/home/AboutTeaser';
 import ContactBand from '@/components/home/ContactBand';
 
@@ -19,7 +18,6 @@ export default function HomePage() {
       <Hero />
       <BentoSection />
       <Capabilities />
-      <WorkGallery />
       <AboutTeaser />
       <ContactBand />
     </>
