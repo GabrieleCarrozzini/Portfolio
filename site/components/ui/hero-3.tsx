@@ -159,34 +159,25 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
           contain: "layout style",
         }}
       >
-        <motion.div
-          className="flex gap-4"
-          style={{ willChange: "transform" }}
-          animate={{
-            x: ["-100%", "0%"],
-            transition: {
-              ease: "linear",
-              duration: 40,
-              repeat: Infinity,
-            },
-          }}
-        >
+        <div className="marquee-track flex gap-4">
           {duplicatedImages.map((src, index) => (
             <div
               key={index}
               className="relative aspect-[3/4] h-48 md:h-64 flex-shrink-0"
-              style={{
-                rotate: `${index % 2 === 0 ? -2 : 5}deg`,
-              }}
+              style={{ rotate: `${index % 2 === 0 ? -2 : 5}deg` }}
             >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={src}
-                alt={`Showcase image ${index + 1}`}
+                alt=""
+                aria-hidden="true"
                 className="w-full h-full object-cover rounded-2xl shadow-md"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
