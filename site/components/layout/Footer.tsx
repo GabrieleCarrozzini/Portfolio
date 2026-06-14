@@ -78,8 +78,8 @@ export default function Footer() {
             href="mailto:gabriele.carrozzini1@gmail.com"
             style={{
               fontFamily: 'var(--font-mono)',
-              fontSize: 'clamp(0.72rem, 1vw, 0.8rem)',
-              letterSpacing: '0.08em',
+              fontSize: 'clamp(0.78rem, 1vw, 0.875rem)',
+              letterSpacing: '0.04em',
               color: 'var(--white)',
               textDecoration: 'none',
               transition: 'color 200ms ease',
@@ -93,10 +93,9 @@ export default function Footer() {
           <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(16px, 3vw, 32px)', flexWrap: 'wrap' }}>
             <span style={{
               fontFamily: 'var(--font-mono)',
-              fontSize: 'clamp(0.68rem, 0.9vw, 0.75rem)',
-              letterSpacing: '0.1em',
+              fontSize: 'clamp(0.72rem, 0.9vw, 0.8rem)',
+              letterSpacing: '0.04em',
               color: 'var(--gray-700)',
-              textTransform: 'uppercase',
             }}>
               © {new Date().getFullYear()} Gabriele Carrozzini
             </span>
@@ -114,9 +113,10 @@ export default function Footer() {
 
       <style>{`
         .footer-social {
-          font-family: var(--font-mono);
-          font-size: clamp(0.72rem, 1vw, 0.82rem);
-          letter-spacing: 0.2em;
+          font-family: var(--font-display);
+          font-size: clamp(0.8rem, 1.1vw, 0.9rem);
+          font-weight: 600;
+          letter-spacing: 0.05em;
           text-transform: uppercase;
           color: var(--gray-500);
           text-decoration: none;
@@ -126,19 +126,21 @@ export default function Footer() {
 
         .footer-top-btn {
           background: none;
-          border: 1px solid var(--gray-700);
-          color: var(--gray-500);
-          font-family: var(--font-mono);
-          font-size: clamp(0.65rem, 0.85vw, 0.72rem);
-          letter-spacing: 0.2em;
+          border: 1px solid rgba(250,250,248,0.2);
+          color: var(--white);
+          font-family: var(--font-display);
+          font-size: clamp(0.78rem, 0.9vw, 0.85rem);
+          font-weight: 600;
+          letter-spacing: 0.05em;
           text-transform: uppercase;
-          padding: 8px 16px;
+          padding: 9px 18px;
           cursor: pointer;
-          transition: border-color 200ms ease, color 200ms ease;
+          transition: border-color 200ms ease, background 200ms ease;
+          line-height: 1;
         }
         .footer-top-btn:hover {
-          border-color: var(--white);
-          color: var(--white);
+          border-color: rgba(250,250,248,0.6);
+          background: rgba(250,250,248,0.06);
         }
       `}</style>
     </footer>

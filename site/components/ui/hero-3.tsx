@@ -51,16 +51,18 @@ const ActionButton = ({
         alignItems: "center",
         gap: 10,
         marginTop: "2rem",
-        padding: "16px 52px",
+        padding: "16px 48px",
         background: "var(--white)",
         border: "1.5px solid rgba(250,250,248,0.9)",
-        fontFamily: "var(--font-mono)",
-        fontSize: "var(--fs-label)",
-        letterSpacing: "var(--tracking-label)",
+        fontFamily: "var(--font-display)",
+        fontSize: "0.9rem",
+        fontWeight: 600,
+        letterSpacing: "0.05em",
         textTransform: "uppercase",
         textDecoration: "none",
         cursor: "pointer",
         color: "#060606",
+        lineHeight: 1,
       }}
     >
       <span style={{ position: "relative", zIndex: 1 }}>{children}</span>
