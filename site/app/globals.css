@@ -196,43 +196,56 @@ h1, h2, h3, h4, h5, h6 {
   padding-right: var(--space-6);
 }
 @media (max-width: 768px) {
+  :root {
+    --space-5: 24px;
+    --space-6: 32px;
+    --space-7: 40px;
+    --space-8: 64px;
+  }
   .container-site {
     padding-left: var(--space-4);
     padding-right: var(--space-4);
   }
+  /* Minimum 44px touch targets */
+  .btn-gold,
+  .btn-ghost {
+    min-height: 44px;
+  }
+  .show-mobile {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }
 
-/* â”€â”€â”€ Gold Button â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* --- Gold Button ----------------------------------------- */
+@keyframes btn-glow-pulse {
+  0%, 100% { box-shadow: 0 0 0px rgba(250,250,248,0); }
+  50%       { box-shadow: 0 0 14px rgba(250,250,248,0.55), 0 0 28px rgba(250,250,248,0.18); }
+}
 .btn-gold {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 14px 28px;
-  background: transparent;
-  border: 1px solid var(--gold-500);
-  color: var(--gold-500);
+  background: var(--white);
+  border: 1.5px solid rgba(250,250,248,0.9);
+  color: var(--black-900);
   font-family: var(--font-mono);
   font-size: var(--fs-label);
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
-  transition: background var(--dur-fast) ease, color var(--dur-fast) ease;
-  position: relative;
-  overflow: hidden;
+  transition: box-shadow 200ms ease;
+  animation: btn-glow-pulse 2.8s ease-in-out infinite;
 }
-.btn-gold::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--gold-500);
-  transform: translateX(-101%);
-  transition: transform var(--dur-fast) var(--ease-cinematic);
-  z-index: 0;
+.btn-gold:hover {
+  box-shadow: 0 0 20px rgba(250,250,248,0.75), 0 0 40px rgba(250,250,248,0.3);
+  animation: none;
 }
-.btn-gold:hover::before { transform: translateX(0); }
-.btn-gold:hover { color: var(--black-900); }
-.btn-gold > * { position: relative; z-index: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .btn-gold { animation: none; }
+}
 
 .btn-ghost {
   display: inline-flex;
@@ -560,18 +573,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* â”€â”€â”€ Character float keyframes â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-/* ─── Hero marquee ─────────────────────────────── */
-@keyframes marquee-scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-.marquee-track {
-  animation: marquee-scroll 40s linear infinite;
-  will-change: transform;
-}
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track { animation-play-state: paused; }
-}
+/* marquee animation handled by Framer Motion in hero-3.tsx */
 
 @keyframes float {
   0%, 100% { transform: translateY(0px); }

@@ -3,10 +3,10 @@
 import Link from 'next/link';
 
 const socials = [
-  { label: 'ArtStation', href: '#', abbr: 'AS' },
-  { label: 'Behance', href: '#', abbr: 'BE' },
-  { label: 'Instagram', href: '#', abbr: 'IG' },
-  { label: 'LinkedIn', href: '#', abbr: 'LI' },
+  { label: 'Behance',   href: 'https://www.behance.net/gabrielcarrozz1' },
+  { label: 'Instagram', href: 'https://www.instagram.com/gabrielecarrozzini_/' },
+  { label: 'LinkedIn',  href: 'https://www.linkedin.com/feed/' },
+  { label: 'Facebook',  href: 'https://www.facebook.com/gabriele.carrozzini.5/' },
 ];
 
 export default function Footer() {
@@ -16,84 +16,131 @@ export default function Footer() {
       style={{
         borderTop: '1px solid var(--line)',
         background: 'var(--black-900)',
-        padding: 'var(--space-6) 0',
+        padding: 'clamp(48px, 7vw, 96px) 0 clamp(32px, 4vw, 56px)',
       }}
     >
       <div className="container-site">
-        {/* Top row */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 'var(--space-4)', marginBottom: 'var(--space-6)' }}>
-          {/* Brand */}
+
+        {/* Main block */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 'clamp(32px, 5vw, 56px)', marginBottom: 'clamp(32px, 5vw, 56px)' }}>
+
+          {/* Identity */}
           <div>
-            <Link href="/" style={{ textDecoration: 'none', display: 'block', marginBottom: 8 }}>
-              <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '1.5rem', color: 'var(--white)', letterSpacing: '-0.02em' }}>
+            <Link href="/" style={{ textDecoration: 'none', display: 'block', marginBottom: 10 }}>
+              <span style={{
+                fontFamily: 'var(--font-display)',
+                fontWeight: 700,
+                fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)',
+                color: 'var(--white)',
+                letterSpacing: '-0.02em',
+                lineHeight: 1,
+              }}>
                 GABRIELE CARROZZINI
               </span>
             </Link>
-            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', letterSpacing: '0.24em', color: 'var(--gold-500)', textTransform: 'uppercase' }}>
-              3D Character Artist &amp; Art Director
+            <p style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: 'clamp(0.72rem, 1vw, 0.8rem)',
+              letterSpacing: '0.22em',
+              color: 'var(--gray-500)',
+              textTransform: 'uppercase',
+            }}>
+              Visual Designer &nbsp;·&nbsp; Rome, Italy
             </p>
           </div>
 
-          {/* Socials */}
-          <nav aria-label="Social links" style={{ display: 'flex', gap: 'var(--space-4)', alignItems: 'center', flexWrap: 'wrap' }}>
-            {socials.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                aria-label={s.label}
-                style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.65rem',
-                  letterSpacing: '0.18em',
-                  textTransform: 'uppercase',
-                  color: 'var(--gray-500)',
-                  textDecoration: 'none',
-                  transition: 'color 200ms ease',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 4,
-                }}
-                onMouseOver={(e) => ((e.target as HTMLElement).style.color = 'var(--gold-500)')}
-                onMouseOut={(e) => ((e.target as HTMLElement).style.color = 'var(--gray-500)')}
-              >
-                {s.label}
-              </a>
-            ))}
+          {/* Social links */}
+          <nav aria-label="Social links">
+            <ul role="list" style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexWrap: 'wrap', gap: 'clamp(16px, 3vw, 32px)', alignItems: 'center' }}>
+              {socials.map((s) => (
+                <li key={s.label}>
+                  <a
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={s.label}
+                    className="footer-social"
+                  >
+                    {s.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </nav>
         </div>
 
-        {/* Gold hairline */}
-        <div className="hairline" style={{ marginBottom: 'var(--space-4)' }} />
+        {/* Divider */}
+        <div className="hairline" style={{ marginBottom: 'clamp(20px, 3vw, 32px)' }} />
 
-        {/* Bottom row */}
+        {/* Bottom bar */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', letterSpacing: '0.18em', color: 'var(--gray-700)', textTransform: 'uppercase' }}>
-            © {new Date().getFullYear()} Gabriele Carrozzini — All rights reserved
-          </div>
-          <div style={{ display: 'flex', gap: 'var(--space-4)', alignItems: 'center', flexWrap: 'wrap' }}>
-            <a
-              href="mailto:hello@gabrielecarrozzini.com"
-              style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', letterSpacing: '0.12em', color: 'var(--gold-500)', textDecoration: 'none' }}
-            >
-              hello@gabrielecarrozzini.com
-            </a>
+          <a
+            href="mailto:gabriele.carrozzini1@gmail.com"
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: 'clamp(0.72rem, 1vw, 0.8rem)',
+              letterSpacing: '0.08em',
+              color: 'var(--white)',
+              textDecoration: 'none',
+              transition: 'color 200ms ease',
+            }}
+            onMouseOver={(e) => ((e.currentTarget as HTMLElement).style.color = 'var(--gray-500)')}
+            onMouseOut={(e) => ((e.currentTarget as HTMLElement).style.color = 'var(--white)')}
+          >
+            gabriele.carrozzini1@gmail.com
+          </a>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(16px, 3vw, 32px)', flexWrap: 'wrap' }}>
+            <span style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: 'clamp(0.68rem, 0.9vw, 0.75rem)',
+              letterSpacing: '0.1em',
+              color: 'var(--gray-700)',
+              textTransform: 'uppercase',
+            }}>
+              © {new Date().getFullYear()} Gabriele Carrozzini
+            </span>
+
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               aria-label="Back to top"
-              style={{
-                background: 'none', border: '1px solid var(--gray-700)', color: 'var(--gray-500)',
-                fontFamily: 'var(--font-mono)', fontSize: '0.6rem', letterSpacing: '0.2em',
-                textTransform: 'uppercase', padding: '6px 12px', cursor: 'pointer',
-                transition: 'border-color 200ms ease, color 200ms ease',
-              }}
-              onMouseOver={(e) => { const el = e.currentTarget; el.style.borderColor = 'var(--gold-500)'; el.style.color = 'var(--gold-500)'; }}
-              onMouseOut={(e) => { const el = e.currentTarget; el.style.borderColor = 'var(--gray-700)'; el.style.color = 'var(--gray-500)'; }}
+              className="footer-top-btn"
             >
               ↑ Top
             </button>
           </div>
         </div>
       </div>
+
+      <style>{`
+        .footer-social {
+          font-family: var(--font-mono);
+          font-size: clamp(0.72rem, 1vw, 0.82rem);
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: var(--gray-500);
+          text-decoration: none;
+          transition: color 220ms ease;
+        }
+        .footer-social:hover { color: var(--white); }
+
+        .footer-top-btn {
+          background: none;
+          border: 1px solid var(--gray-700);
+          color: var(--gray-500);
+          font-family: var(--font-mono);
+          font-size: clamp(0.65rem, 0.85vw, 0.72rem);
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          padding: 8px 16px;
+          cursor: pointer;
+          transition: border-color 200ms ease, color 200ms ease;
+        }
+        .footer-top-btn:hover {
+          border-color: var(--white);
+          color: var(--white);
+        }
+      `}</style>
     </footer>
   );
 }

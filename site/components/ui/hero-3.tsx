@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useState, useMemo } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface AnimatedMarqueeHeroProps {
@@ -22,62 +22,53 @@ const ActionButton = ({
   href?: string;
 }) => {
   const [hovered, setHovered] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
   return (
     <motion.a
       href={href ?? "/work"}
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
       whileTap={{ scale: 0.97 }}
+      animate={
+        shouldReduceMotion
+          ? {}
+          : {
+              boxShadow: [
+                "0 0 0px rgba(250,250,248,0)",
+                "0 0 14px rgba(250,250,248,0.55), 0 0 28px rgba(250,250,248,0.18)",
+                "0 0 0px rgba(250,250,248,0)",
+              ],
+            }
+      }
+      transition={
+        shouldReduceMotion
+          ? { duration: 0 }
+          : { duration: 2.8, ease: "easeInOut", repeat: Infinity }
+      }
       style={{
         position: "relative",
         display: "inline-flex",
         alignItems: "center",
         gap: 10,
         marginTop: "2rem",
-        padding: "14px 40px",
-        overflow: "hidden",
-        border: "1px solid rgba(250,250,248,0.65)",
+        padding: "16px 52px",
+        background: "var(--white)",
+        border: "1.5px solid rgba(250,250,248,0.9)",
         fontFamily: "var(--font-mono)",
         fontSize: "var(--fs-label)",
         letterSpacing: "var(--tracking-label)",
         textTransform: "uppercase",
         textDecoration: "none",
         cursor: "pointer",
+        color: "#060606",
       }}
     >
-      {/* Sliding fill */}
+      <span style={{ position: "relative", zIndex: 1 }}>{children}</span>
       <motion.span
-        initial={false}
-        animate={{ x: hovered ? "0%" : "-101%" }}
-        transition={{ duration: 0.38, ease: [0.76, 0, 0.24, 1] }}
+        animate={{ x: hovered ? 5 : 0 }}
+        transition={{ duration: 0.22, ease: "easeOut" }}
         aria-hidden="true"
-        style={{
-          position: "absolute",
-          inset: 0,
-          background: "var(--white)",
-          zIndex: 0,
-        }}
-      />
-      {/* Label */}
-      <motion.span
-        animate={{ color: hovered ? "#060606" : "#FAFAF8" }}
-        transition={{ duration: 0.05, delay: hovered ? 0.22 : 0 }}
-        style={{ position: "relative", zIndex: 1 }}
-      >
-        {children}
-      </motion.span>
-      {/* Arrow */}
-      <motion.span
-        animate={{
-          x: hovered ? 5 : 0,
-          color: hovered ? "#060606" : "#FAFAF8",
-        }}
-        transition={{
-          x: { duration: 0.22, ease: "easeOut" },
-          color: { duration: 0.05, delay: hovered ? 0.22 : 0 },
-        }}
-        aria-hidden="true"
-        style={{ position: "relative", zIndex: 1, lineHeight: 1 }}
+        style={{ position: "relative", zIndex: 1, lineHeight: 1, color: "#060606" }}
       >
         →
       </motion.span>
@@ -94,16 +85,30 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
   images,
   className,
 }) => {
-  const FADE_IN_ANIMATION_VARIANTS = {
-    hidden: { opacity: 0, y: 10 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { type: "spring" as const, stiffness: 100, damping: 20 },
-    },
-  };
+  const shouldReduceMotion = useReducedMotion();
 
-  const duplicatedImages = [...images, ...images];
+  const FADE_IN_ANIMATION_VARIANTS = shouldReduceMotion
+    ? { hidden: {}, show: {} }
+    : {
+        hidden: { opacity: 0, y: 10 },
+        show: {
+          opacity: 1,
+          y: 0,
+          transition: { type: "spring" as const, stiffness: 100, damping: 20 },
+        },
+      };
+
+  // Shuffle then triple for a varied, seamless strip
+  const tripledImages = useMemo(() => {
+    const shuffled = [...images].sort((a, b) => {
+      const ha = (a.charCodeAt(5) * 2654435761) >>> 0;
+      const hb = (b.charCodeAt(5) * 2654435761) >>> 0;
+      return ha - hb;
+    });
+    return [...shuffled, ...shuffled, ...shuffled];
+  }, [images]);
+
+  const SECONDS_PER_LOOP = 60;
 
   return (
     <section
@@ -191,34 +196,53 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
 
       {/* Animated Image Marquee */}
       <div
-        className="absolute bottom-0 left-0 w-full h-1/3 md:h-2/5"
+        className="absolute bottom-0 left-0 w-full"
         style={{
-          WebkitMaskImage:
-            "linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)",
-          maskImage:
-            "linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)",
+          height: '52%',
+          WebkitMaskImage: "linear-gradient(to bottom, transparent, black 22%, black 85%, transparent)",
+          maskImage: "linear-gradient(to bottom, transparent, black 22%, black 85%, transparent)",
           contain: "layout style",
         }}
       >
-        <div className="marquee-track flex gap-4">
-          {duplicatedImages.map((src, index) => (
+        <div
+          className="flex gap-5"
+          style={{
+            willChange: "transform",
+            transform: "translateZ(0)",
+            backfaceVisibility: "hidden",
+            animation: shouldReduceMotion ? "none" : `marquee-scroll ${SECONDS_PER_LOOP}s linear infinite`,
+          }}
+        >
+          {tripledImages.map((src, index) => (
             <div
               key={index}
-              className="relative aspect-[3/4] h-48 md:h-64 flex-shrink-0"
-              style={{ rotate: `${index % 2 === 0 ? -2 : 5}deg` }}
+              className="relative flex-shrink-0"
+              style={{
+                height: 'clamp(200px, 28vh, 340px)',
+                aspectRatio: '3/4',
+                rotate: `${((index % 7) - 3) * 0.9}deg`,
+              }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={src}
                 alt=""
                 aria-hidden="true"
-                className="w-full h-full object-cover rounded-2xl shadow-md"
-                loading="lazy"
+                className="w-full h-full object-cover shadow-lg"
+                style={{ borderRadius: 6 }}
+                loading="eager"
                 decoding="async"
               />
             </div>
           ))}
         </div>
+
+        <style>{`
+          @keyframes marquee-scroll {
+            from { transform: translateX(0) translateZ(0); }
+            to   { transform: translateX(-33.333%) translateZ(0); }
+          }
+        `}</style>
       </div>
     </section>
   );
