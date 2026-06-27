@@ -65,7 +65,6 @@ export default function CollectionGallery() {
           pointerEvents: 'none',
         }}
       >
-        <span className="label-gold">Collection</span>
         <h2
           id="collection-gallery-heading"
           style={{
@@ -80,6 +79,19 @@ export default function CollectionGallery() {
         >
           Selected Work
         </h2>
+        <span
+          aria-hidden="true"
+          style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '0.6rem',
+            letterSpacing: '0.18em',
+            textTransform: 'uppercase',
+            color: 'var(--gray-700)',
+            marginTop: 'var(--space-2)',
+          }}
+        >
+          Drag · Click to open
+        </span>
       </div>
 
       {/* Gallery */}
@@ -110,9 +122,9 @@ export default function CollectionGallery() {
           background: var(--white);
           border: 1.5px solid rgba(250,250,248,0.9);
           color: #060606;
-          font-family: var(--font-mono);
-          font-size: 0.8rem;
-          letter-spacing: var(--tracking-label);
+          font-family: var(--font-display);
+          font-size: 0.9rem;
+          letter-spacing: 0.05em;
           text-transform: uppercase;
           text-decoration: none;
           cursor: pointer;

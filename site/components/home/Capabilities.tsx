@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 
 /* ─── Bento card wrapper ─────────────────────────────── */
@@ -36,7 +37,7 @@ function FramesDecoration() {
       <div style={{ position: 'absolute', inset: 0, border: '1px solid rgba(250,250,248,0.06)' }} aria-hidden="true" />
       <div style={{ position: 'absolute', inset: '14px 28px', border: '1px solid rgba(250,250,248,0.09)' }} aria-hidden="true" />
       <div style={{ position: 'absolute', inset: '28px 56px', border: '1px solid rgba(250,250,248,0.13)' }} aria-hidden="true" />
-      <div style={{ position: 'absolute', inset: '42px 80px', border: '1px solid rgba(215,175,95,0.25)' }} aria-hidden="true" />
+      <div style={{ position: 'absolute', inset: '42px 80px', border: '1px solid rgba(250,250,248,0.25)' }} aria-hidden="true" />
       <span
         aria-hidden="true"
         style={{
@@ -71,12 +72,12 @@ function PosterDecoration() {
           flexShrink: 0,
         }}
       >
-        <div style={{ position: 'absolute', top: 10, left: 8, right: 8, height: 1, background: 'rgba(215,175,95,0.5)' }} />
+        <div style={{ position: 'absolute', top: 10, left: 8, right: 8, height: 1, background: 'rgba(250,250,248,0.5)' }} />
         <div style={{ position: 'absolute', top: 18, left: 8, right: 8, height: 10, background: 'rgba(250,250,248,0.18)' }} />
         <div style={{ position: 'absolute', top: 33, left: 8, right: 8, height: 3, background: 'rgba(250,250,248,0.07)' }} />
         <div style={{ position: 'absolute', top: 40, left: 8, right: 8, height: 3, background: 'rgba(250,250,248,0.05)' }} />
         <div style={{ position: 'absolute', top: 47, left: 8, right: 8, height: 3, background: 'rgba(250,250,248,0.04)' }} />
-        <div style={{ position: 'absolute', bottom: 10, left: 8, right: 8, height: 22, background: 'rgba(215,175,95,0.07)', border: '1px solid rgba(215,175,95,0.18)' }} />
+        <div style={{ position: 'absolute', bottom: 10, left: 8, right: 8, height: 22, background: 'rgba(250,250,248,0.07)', border: '1px solid rgba(250,250,248,0.18)' }} />
       </div>
       <div aria-hidden="true" style={{ position: 'absolute', top: 20, left: 20, fontFamily: 'var(--font-mono)', fontSize: '0.45rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--gray-700)' }}>
         Art Direction
@@ -104,7 +105,7 @@ function RingsDecoration() {
       >
         <div style={{ position: 'absolute', inset: -14, borderRadius: '50%', border: '1px solid rgba(250,250,248,0.07)' }} />
         <div style={{ position: 'absolute', inset: -28, borderRadius: '50%', border: '1px solid rgba(250,250,248,0.04)' }} />
-        <div style={{ position: 'absolute', inset: -42, borderRadius: '50%', border: '1px solid rgba(215,175,95,0.06)' }} />
+        <div style={{ position: 'absolute', inset: -42, borderRadius: '50%', border: '1px solid rgba(250,250,248,0.06)' }} />
         <span style={{ fontFamily: 'var(--font-mono)', fontSize: '1.8rem', color: 'var(--gold-500)', lineHeight: 1 }}>◱</span>
       </div>
     </div>
@@ -153,7 +154,6 @@ export default function Capabilities() {
     >
       <div className="container-site">
         <ScrollReveal style={{ marginBottom: 'var(--space-6)' }}>
-          <span className="label-gold" style={{ display: 'block', marginBottom: 'var(--space-2)' }}>Capabilities</span>
           <h2
             id="capabilities-heading"
             style={{
@@ -259,13 +259,11 @@ export default function Capabilities() {
                 <blockquote
                   style={{
                     fontFamily: 'var(--font-display)',
-                    fontSize: 'clamp(1.2rem, 2.2vw, 1.7rem)',
+                    fontSize: 'clamp(1.4rem, 2.6vw, 2rem)',
                     fontWeight: 700,
                     color: 'var(--white)',
                     letterSpacing: '-0.025em',
                     lineHeight: 1.15,
-                    borderLeft: '2px solid var(--gold-500)',
-                    paddingLeft: 'var(--space-3)',
                     margin: 0,
                   }}
                 >
@@ -309,6 +307,25 @@ export default function Capabilities() {
               </ul>
             </BentoCard>
           </ScrollReveal>
+        </div>
+
+        <div style={{ marginTop: 'var(--space-5)', display: 'flex', justifyContent: 'flex-end' }}>
+          <Link
+            href="/services"
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.7rem',
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              color: 'var(--white)',
+              textDecoration: 'none',
+              borderBottom: '1px solid rgba(250,250,248,0.3)',
+              paddingBottom: 2,
+              transition: 'border-color 200ms ease',
+            }}
+          >
+            See Services →
+          </Link>
         </div>
       </div>
 

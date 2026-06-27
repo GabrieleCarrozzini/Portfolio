@@ -245,8 +245,8 @@ export const PersonalLanding: React.FC = () => {
                 Available for freelance projects and open to full-time creative roles. Typical lead time 2–4 weeks.
               </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#4CAF50', display: 'inline-block', boxShadow: '0 0 6px #4CAF50' }} aria-hidden="true" />
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', letterSpacing: '0.18em', color: '#4CAF50', textTransform: 'uppercase' }}>Available Now</span>
+                <span style={{ width: 6, height: 6, background: 'var(--gold-500)', display: 'inline-block', flexShrink: 0 }} aria-hidden="true" />
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', letterSpacing: '0.18em', color: 'var(--gold-500)', textTransform: 'uppercase' }}>Available Now</span>
               </div>
             </div>
 

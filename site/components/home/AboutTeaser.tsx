@@ -9,7 +9,6 @@ export default function AboutTeaser() {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-6)', alignItems: 'center' }}>
           {/* Left â€" text */}
           <ScrollReveal direction="left">
-            <span className="label-gold" style={{ display: 'block', marginBottom: 'var(--space-2)' }}>About</span>
             <h2 id="about-teaser-heading" style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--fs-h2)', fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--white)', lineHeight: 1.05, marginBottom: 'var(--space-4)' }}>
               Form over<br />literal meaning.
             </h2>

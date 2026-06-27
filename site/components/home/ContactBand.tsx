@@ -15,8 +15,8 @@ export default function ContactBand() {
         overflow: 'hidden',
       }}
     >
-      {/* Gold accent line at top */}
-      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 2, background: 'linear-gradient(90deg, transparent, var(--gold-500), transparent)' }} aria-hidden="true" />
+      {/* Centered hairline accent */}
+      <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: 64, height: 1, background: 'var(--gold-500)' }} aria-hidden="true" />
       {/* Grid bg */}
       <div
         style={{
@@ -29,7 +29,7 @@ export default function ContactBand() {
 
       <div className="container-site" style={{ position: 'relative', textAlign: 'center' }}>
         <ScrollReveal>
-          <span className="label-gold" style={{ display: 'block', marginBottom: 'var(--space-3)' }}>
+          <span className="label" style={{ display: 'block', marginBottom: 'var(--space-3)' }}>
             Available for Freelance · Open to Roles
           </span>
         </ScrollReveal>
@@ -59,7 +59,7 @@ export default function ContactBand() {
               <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </Link>
-          <a href="mailto:gabriele.carrozzini1@gmail.com" className="btn-red" style={{ padding: '16px 36px' }}>
+          <a href="mailto:gabriele.carrozzini1@gmail.com" className="btn-ghost" style={{ padding: '16px 36px' }}>
             Email Directly
           </a>
         </ScrollReveal>
