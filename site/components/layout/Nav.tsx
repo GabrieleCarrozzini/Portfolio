@@ -59,12 +59,25 @@ export default function Nav() {
               viewBox="0 0 603.06 277.26"
               fill="white"
               xmlns="http://www.w3.org/2000/svg"
-              style={{ height: 30, width: 'auto', display: 'block', userSelect: 'none', flexShrink: 0 }}
+              style={{
+                height: 30, width: 'auto', display: 'block', userSelect: 'none', flexShrink: 0,
+                animation: 'gc-nav-glow 4s ease-in-out infinite',
+                willChange: 'filter',
+              }}
               aria-label="GC"
             >
               <polygon points="304.56 14.59 292.18 38.66 44.56 38.66 158.4 229.53 195.2 165.56 166.31 165.56 184.54 143.9 240.59 143.9 158.74 276.31 .89 14.59 304.56 14.59" />
               <polygon points="519.13 124.48 483.76 124.48 441.62 52.67 325.09 252.38 558.83 252.38 515.2 178.04 545.87 178.04 602.19 274.76 281.74 274.76 441.49 .96 519.13 124.48" />
             </svg>
+            <style>{`
+              @keyframes gc-nav-glow {
+                0%, 100% { filter: drop-shadow(0 0 0px  rgba(255,255,255,0));   }
+                50%       { filter: drop-shadow(0 0 8px  rgba(255,255,255,0.55)) drop-shadow(0 0 18px rgba(255,255,255,0.2)); }
+              }
+              @media (prefers-reduced-motion: reduce) {
+                svg[aria-label="GC"] { animation: none !important; }
+              }
+            `}</style>
           </Link>
 
           {/* Desktop nav */}

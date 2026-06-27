@@ -232,8 +232,11 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
                 aria-hidden="true"
                 className="w-full h-full object-cover shadow-lg"
                 style={{ borderRadius: 6 }}
-                loading="eager"
+                loading={index < 12 ? 'eager' : 'lazy'}
+                fetchPriority={index < 6 ? 'high' : 'low'}
                 decoding="async"
+                width={390}
+                height={520}
               />
             </div>
           ))}

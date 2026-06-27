@@ -3,7 +3,7 @@ import { Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import Nav from '@/components/layout/Nav';
 import Footer from '@/components/layout/Footer';
-import IntroOverlay from '@/components/ui/IntroOverlay';
+import IntroAnimation from '@/components/ui/IntroAnimation';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -108,7 +108,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             }),
           }}
         />
-        <IntroOverlay />
+        <IntroAnimation />
         <Nav />
         <main id="main-content" style={{ flex: 1 }} tabIndex={-1}>
           {children}

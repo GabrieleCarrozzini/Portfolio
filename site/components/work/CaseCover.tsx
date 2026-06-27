@@ -21,7 +21,7 @@ export default function CaseCover({ project }: CaseCoverProps) {
         '--project-accent': project.accentColor,
       } as React.CSSProperties}
     >
-      {/* Full-bleed hero image */}
+      {/* Full image — contain so nothing is cropped */}
       <div style={{ position: 'absolute', inset: 0 }}>
         <Image
           src={project.heroImage}
@@ -30,20 +30,18 @@ export default function CaseCover({ project }: CaseCoverProps) {
           priority
           sizes="100vw"
           style={{
-            objectFit: 'cover',
-            objectPosition: project.focalPoint ?? 'center top',
-            filter: 'blur(0.4px)',
-            transform: 'scale(1.005)',
+            objectFit: 'contain',
+            objectPosition: 'center center',
           }}
         />
       </div>
 
-      {/* Gradient scrim for text readability */}
+      {/* Gradient scrim — lighter since image is fully visible */}
       <div
         aria-hidden="true"
         style={{
           position: 'absolute', inset: 0,
-          background: 'linear-gradient(to top, rgba(6,6,6,0.97) 0%, rgba(6,6,6,0.55) 50%, rgba(6,6,6,0.15) 100%)',
+          background: 'linear-gradient(to top, rgba(6,6,6,0.96) 0%, rgba(6,6,6,0.25) 40%, transparent 70%)',
         }}
       />
 

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Hero from '@/components/home/Hero';
-import BentoSection from '@/components/home/BentoSection';
+import CollectionGallery from '@/components/home/CollectionGallery';
 import Capabilities from '@/components/home/Capabilities';
 import AboutTeaser from '@/components/home/AboutTeaser';
 import ContactBand from '@/components/home/ContactBand';
@@ -16,7 +16,7 @@ export default function HomePage() {
     <>
       <a href="#main-content" className="skip-link">Skip to content</a>
       <Hero />
-      <BentoSection />
+      <CollectionGallery />
       <Capabilities />
       <AboutTeaser />
       <ContactBand />

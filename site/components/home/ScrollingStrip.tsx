@@ -6,7 +6,7 @@ import { ScrollVelocity } from "@/components/ui/scroll-velocity"
 const row1 = [
   { title: "V — Cyberpunk",   src: "/projects/v/gallery-01.png" },
   { title: "Lara",            src: "/projects/lara/gallery-01.png" },
-  { title: "Sandevistan",     src: "/projects/sandevistan/hero.jpg" },
+  { title: "Sandevistan",     src: "/projects/sandevistan/hero.png" },
   { title: "Fuji",            src: "/projects/fuji/hero.jpg" },
   { title: "Somi",            src: "/projects/somi/gallery-01.png" },
   { title: "Songbird",        src: "/projects/songbird/gallery-01.png" },

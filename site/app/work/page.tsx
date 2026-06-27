@@ -46,7 +46,7 @@ export default function WorkPage() {
         <div
           role="list"
           aria-label="Project list"
-          style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 'var(--space-5)' }}
+          style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(320px, 100%), 1fr))', gap: 'var(--space-5)' }}
         >
           {sorted.map((project, i) => (
             <ScrollReveal key={project.slug} delay={i * 0.08} role="listitem">

@@ -34,7 +34,7 @@ export default function ScrollReveal({
           setVisible(false);
         }
       },
-      { rootMargin: '-8% 0px' }
+      { rootMargin: '-8% 0px', threshold: 0.08 }
     );
     observer.observe(el);
     return () => observer.disconnect();

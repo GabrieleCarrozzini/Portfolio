@@ -30,7 +30,7 @@ export default function ContactBand() {
       <div className="container-site" style={{ position: 'relative', textAlign: 'center' }}>
         <ScrollReveal>
           <span className="label-gold" style={{ display: 'block', marginBottom: 'var(--space-3)' }}>
-            Available for Freelance Â· Open to Roles
+            Available for Freelance · Open to Roles
           </span>
         </ScrollReveal>
 
@@ -52,20 +52,14 @@ export default function ContactBand() {
           </h2>
         </ScrollReveal>
 
-        <ScrollReveal delay={0.2}>
-          <p style={{ fontFamily: 'var(--font-body)', fontSize: 'var(--fs-body)', color: 'var(--gray-500)', lineHeight: 1.65, maxWidth: '45ch', margin: '0 auto var(--space-6)' }}>
-            Whether it&rsquo;s a brand identity, a key art campaign, a poster, or a full visual system â€” if it starts with a brief and ends with intent, I&rsquo;m interested.
-          </p>
-        </ScrollReveal>
-
-        <ScrollReveal delay={0.3} style={{ display: 'flex', justifyContent: 'center', gap: 'var(--space-3)', flexWrap: 'wrap' }}>
+        <ScrollReveal delay={0.2} style={{ display: 'flex', justifyContent: 'center', gap: 'var(--space-3)', flexWrap: 'wrap' }}>
           <Link href="/contact" className="btn-gold" style={{ padding: '16px 36px' }}>
             Start a Project
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </Link>
-          <a href="mailto:gabriele.carrozzini1@gmail.com" className="btn-ghost" style={{ padding: '16px 36px' }}>
+          <a href="mailto:gabriele.carrozzini1@gmail.com" className="btn-red" style={{ padding: '16px 36px' }}>
             Email Directly
           </a>
         </ScrollReveal>
@@ -82,7 +76,7 @@ export default function ContactBand() {
             textTransform: 'uppercase',
           }}
         >
-          XN4LCO-43KS Â· æœªæ¥ Â· VISUAL POWER
+          XN4LCO-43KS · æœªæ¥ · VISUAL POWER
         </div>
       </div>
     </section>

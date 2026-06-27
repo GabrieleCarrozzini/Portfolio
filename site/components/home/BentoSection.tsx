@@ -106,7 +106,6 @@ export default function BentoSection() {
           position: absolute;
           inset: 0;
           transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
-          will-change: transform;
         }
         .collection-overlay {
           position: absolute;

@@ -75,7 +75,7 @@ const MediaItem = ({
           className="w-full h-full object-cover"
           onClick={onClick}
           playsInline muted loop preload="auto"
-          style={{ opacity: isBuffering ? 0.8 : 1, transition: 'opacity 0.2s', willChange: 'transform' }}
+          style={{ opacity: isBuffering ? 0.8 : 1, transition: 'opacity 0.2s' }}
         >
           <source src={item.url} type="video/mp4" />
         </video>

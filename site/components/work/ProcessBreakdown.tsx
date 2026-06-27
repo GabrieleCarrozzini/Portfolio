@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { Project } from '@/lib/data/projects';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 
@@ -11,6 +11,7 @@ interface ProcessBreakdownProps {
 
 export default function ProcessBreakdown({ project }: ProcessBreakdownProps) {
   const [open, setOpen] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
   const hasProcess = Boolean(project.processLabels?.length || project.processCopy);
 
   if (!hasProcess) return null;
@@ -39,9 +40,9 @@ export default function ProcessBreakdown({ project }: ProcessBreakdownProps) {
           {open && (
             <motion.div
               id="process-content"
-              initial={{ height: 0, opacity: 0 }}
+              initial={shouldReduceMotion ? false : { height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
+              exit={shouldReduceMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               style={{ overflow: 'hidden' }}
             >

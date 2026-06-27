@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { motion, useScroll, useSpring, useTransform, useMotionValue, useVelocity, useAnimationFrame, wrap } from "framer-motion"
+import { motion, useScroll, useSpring, useTransform, useMotionValue, useVelocity, useAnimationFrame, useReducedMotion, wrap } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 interface ScrollVelocityProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -28,8 +28,10 @@ const ScrollVelocity = React.forwardRef<HTMLDivElement, ScrollVelocityProps>(
 
     const directionFactor = React.useRef<number>(1)
     const scrollThreshold = React.useRef<number>(5)
+    const shouldReduceMotion = useReducedMotion()
 
     useAnimationFrame((t, delta) => {
+      if (shouldReduceMotion) return
       if (movable) {
         move(delta)
       } else {
@@ -59,7 +61,7 @@ const ScrollVelocity = React.forwardRef<HTMLDivElement, ScrollVelocityProps>(
       >
         <motion.div
           className="flex flex-row flex-nowrap whitespace-nowrap text-xl font-semibold uppercase *:mr-6 *:block md:text-2xl xl:text-4xl"
-          style={{ x, willChange: "transform", transform: "translateZ(0)" }}
+          style={{ x, transform: "translateZ(0)" }}
         >
           {typeof children === "string" ? (
             <>

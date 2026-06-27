@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, ReactNode } from 'react';
 import Image from 'next/image';
-import { motion, useMotionValue, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useTransform, useReducedMotion } from 'framer-motion';
 
 interface ScrollExpandMediaProps {
   mediaSrc: string;
@@ -32,12 +32,14 @@ export default function ScrollExpandMedia({
   scrollToExpand,
   children,
 }: ScrollExpandMediaProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   // â”€â”€ Motion value â€” never causes React re-renders â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  const progress = useMotionValue(0);
+  const progress = useMotionValue(shouldReduceMotion ? 1 : 0);
 
   // â”€â”€ Threshold-based state (only changes 2-3 times per session) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  const [expanded, setExpanded]       = useState(false);
-  const [showContent, setShowContent] = useState(false);
+  const [expanded, setExpanded]       = useState(!!shouldReduceMotion);
+  const [showContent, setShowContent] = useState(!!shouldReduceMotion);
 
   // â”€â”€ Viewport dimensions in refs â€” updated on resize, read by transforms â”€â”€â”€
   const winW        = useRef(typeof window !== 'undefined' ? window.innerWidth  : 1440);
@@ -100,6 +102,8 @@ export default function ScrollExpandMedia({
   // â”€â”€ Scroll / touch event handlers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   useEffect(() => {
     let touchY = 0;
+
+    if (shouldReduceMotion) return;
 
     const onWheel = (e: WheelEvent) => {
       const cur = progress.get();
@@ -167,7 +171,7 @@ export default function ScrollExpandMedia({
         {/* â”€â”€ Background â€” same image, fades out â”€â”€ */}
         <motion.div
           className="absolute inset-0 z-0"
-          style={{ opacity: bgOpacity, willChange: 'opacity' }}
+          style={{ opacity: bgOpacity }}
           aria-hidden="true"
         >
           <Image
@@ -190,7 +194,7 @@ export default function ScrollExpandMedia({
           {/* Expanding image â€” clip-path grows from center rectangle to full screen */}
           <motion.div
             className="absolute inset-0"
-            style={{ clipPath, willChange: 'clip-path' }}
+            style={{ clipPath }}
           >
             <Image
               src={mediaSrc}
@@ -203,7 +207,7 @@ export default function ScrollExpandMedia({
             {/* Overlay fades as image reveals */}
             <motion.div
               className="absolute inset-0"
-              style={{ background: 'rgba(6,6,6,0.85)', opacity: overlayOpacity, willChange: 'opacity' }}
+              style={{ background: 'rgba(6,6,6,0.85)', opacity: overlayOpacity }}
             />
           </motion.div>
 
@@ -215,7 +219,6 @@ export default function ScrollExpandMedia({
               clipPath: borderClip,
               opacity: borderOpacity,
               outline: '1px solid rgba(250,250,248,0.4)',
-              willChange: 'clip-path, opacity',
             }}
           />
 
@@ -224,7 +227,6 @@ export default function ScrollExpandMedia({
             <motion.div
               style={{
                 x: x1,
-                willChange: 'transform',
                 fontFamily: 'var(--font-display)',
                 fontSize: 'clamp(3rem, 8.5vw, 9.5rem)',
                 fontWeight: 700,
@@ -239,7 +241,6 @@ export default function ScrollExpandMedia({
             <motion.div
               style={{
                 x: x2,
-                willChange: 'transform',
                 fontFamily: 'var(--font-display)',
                 fontSize: 'clamp(3rem, 8.5vw, 9.5rem)',
                 fontWeight: 700,
@@ -259,7 +260,6 @@ export default function ScrollExpandMedia({
               <motion.p
                 style={{
                   x: lx1,
-                  willChange: 'transform',
                   fontFamily: 'var(--font-mono)',
                   fontSize: '0.6rem',
                   letterSpacing: '0.28em',
@@ -274,7 +274,6 @@ export default function ScrollExpandMedia({
               <motion.p
                 style={{
                   x: lx2,
-                  willChange: 'transform',
                   fontFamily: 'var(--font-mono)',
                   fontSize: '0.6rem',
                   letterSpacing: '0.28em',
