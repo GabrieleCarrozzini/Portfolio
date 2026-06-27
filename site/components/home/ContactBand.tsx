@@ -17,6 +17,10 @@ export default function ContactBand() {
     >
       {/* Centered hairline accent */}
       <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: 64, height: 1, background: 'var(--gold-500)' }} aria-hidden="true" />
+      {/* Ghosted background text */}
+      <div aria-hidden="true" style={{ position: 'absolute', bottom: '-0.1em', left: '50%', transform: 'translateX(-50%)', fontFamily: 'var(--font-display)', fontSize: 'clamp(7rem, 20vw, 22rem)', fontWeight: 700, letterSpacing: '-0.05em', textTransform: 'uppercase', color: 'rgba(250,250,248,0.025)', whiteSpace: 'nowrap', pointerEvents: 'none', userSelect: 'none', lineHeight: 1, zIndex: 0 }}>
+        Contact
+      </div>
       {/* Grid bg */}
       <div
         style={{
@@ -38,14 +42,14 @@ export default function ContactBand() {
           <h2
             id="contact-band-heading"
             style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: 'var(--fs-h1)',
-              fontWeight: 700,
-              letterSpacing: '-0.03em',
+              fontFamily: 'var(--font-serif)',
+              fontSize: 'clamp(2.8rem, 6vw, 6rem)',
+              fontWeight: 300,
+              fontStyle: 'italic',
+              letterSpacing: '-0.01em',
               color: 'var(--white)',
-              lineHeight: 1,
+              lineHeight: 1.05,
               marginBottom: 'var(--space-4)',
-              textTransform: 'uppercase',
             }}
           >
             Let&rsquo;s Make Something <span style={{ color: 'var(--gold-500)' }}>Memorable.</span>

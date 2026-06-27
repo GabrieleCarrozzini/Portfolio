@@ -4,12 +4,15 @@ import ScrollReveal from '@/components/ui/ScrollReveal';
 
 export default function AboutTeaser() {
   return (
-    <section aria-labelledby="about-teaser-heading" style={{ background: 'var(--black-900)', paddingTop: 'var(--space-7)', paddingBottom: 'var(--space-7)', borderTop: '1px solid var(--line)' }}>
-      <div className="container-site">
+    <section aria-labelledby="about-teaser-heading" style={{ background: 'var(--black-900)', paddingTop: 'var(--space-7)', paddingBottom: 'var(--space-7)', borderTop: '1px solid var(--line)', position: 'relative', overflow: 'hidden' }}>
+      <div aria-hidden="true" style={{ position: 'absolute', bottom: '-0.15em', left: '50%', transform: 'translateX(-50%)', fontFamily: 'var(--font-display)', fontSize: 'clamp(8rem, 22vw, 22rem)', fontWeight: 700, letterSpacing: '-0.05em', textTransform: 'uppercase', color: 'rgba(250,250,248,0.03)', whiteSpace: 'nowrap', pointerEvents: 'none', userSelect: 'none', lineHeight: 1, zIndex: 0 }}>
+        About
+      </div>
+      <div className="container-site" style={{ position: 'relative', zIndex: 1 }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-6)', alignItems: 'center' }}>
           {/* Left â€" text */}
           <ScrollReveal direction="left">
-            <h2 id="about-teaser-heading" style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--fs-h2)', fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--white)', lineHeight: 1.05, marginBottom: 'var(--space-4)' }}>
+            <h2 id="about-teaser-heading" style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2.4rem, 4.5vw, 4.2rem)', fontWeight: 300, fontStyle: 'italic', letterSpacing: '-0.01em', color: 'var(--white)', lineHeight: 1.08, marginBottom: 'var(--space-4)' }}>
               Form over<br />literal meaning.
             </h2>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: 'var(--fs-body)', color: 'var(--gray-500)', lineHeight: 1.7, maxWidth: '45ch', marginBottom: 'var(--space-5)' }}>

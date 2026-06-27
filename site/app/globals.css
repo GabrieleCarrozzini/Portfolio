@@ -4,8 +4,8 @@
 /* â”€â”€â”€ Design System Tokens â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 :root {
   /* Color â€” brand */
-  --black-900: #060606;
-  --black-800: #0C0B0A;
+  --black-900: #000000;
+  --black-800: #080808;
   --gold-500:  #FFFFFF;
   --gold-600:  #D4D4D0;
   --gold-300:  #F8F8F6;
@@ -26,6 +26,7 @@
 
   /* Typography */
   --font-display: 'Clash Display', system-ui, sans-serif;
+  --font-serif:   var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
   --font-body:    var(--font-inter, system-ui, sans-serif);
   --font-mono:    var(--font-jetbrains, 'Courier New', monospace);
 
@@ -81,6 +82,12 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+/* Custom cursor — only on precise pointer devices */
+@media (hover: hover) and (pointer: fine) {
+  * { cursor: none !important; }
+  input, textarea, [contenteditable] { cursor: text !important; }
 }
 
 html {

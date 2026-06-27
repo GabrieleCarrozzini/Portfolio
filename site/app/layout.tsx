@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
+import { Inter, JetBrains_Mono, Cormorant_Garamond } from 'next/font/google';
 import './globals.css';
 import Nav from '@/components/layout/Nav';
 import Footer from '@/components/layout/Footer';
 import IntroAnimation from '@/components/ui/IntroAnimation';
+import CustomCursor from '@/components/ui/CustomCursor';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -17,6 +18,14 @@ const jetbrainsMono = JetBrains_Mono({
   variable: '--font-jetbrains',
   display: 'swap',
   weight: ['400', '500'],
+});
+
+const cormorantGaramond = Cormorant_Garamond({
+  subsets: ['latin'],
+  variable: '--font-cormorant',
+  display: 'swap',
+  weight: ['300', '400', '500', '600'],
+  style: ['normal', 'italic'],
 });
 
 export const metadata: Metadata = {
@@ -75,7 +84,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${jetbrainsMono.variable}`}
+      className={`${inter.variable} ${jetbrainsMono.variable} ${cormorantGaramond.variable}`}
     >
       <head>
         <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
@@ -108,6 +117,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             }),
           }}
         />
+        <CustomCursor />
         <IntroAnimation />
         <Nav />
         <main id="main-content" style={{ flex: 1 }} tabIndex={-1}>

@@ -94,6 +94,11 @@ export default function CollectionGallery() {
         </span>
       </div>
 
+      {/* Ghosted background text */}
+      <div aria-hidden="true" style={{ position: 'absolute', bottom: '-0.1em', left: '50%', transform: 'translateX(-50%)', fontFamily: 'var(--font-display)', fontSize: 'clamp(8rem, 24vw, 26rem)', fontWeight: 700, letterSpacing: '-0.05em', textTransform: 'uppercase', color: 'rgba(250,250,248,0.03)', whiteSpace: 'nowrap', pointerEvents: 'none', userSelect: 'none', lineHeight: 1, zIndex: 0 }}>
+        Work
+      </div>
+
       {/* Gallery */}
       <div style={{ width: '100%', height: '100%' }}>
         <CircularGallery items={galleryItems} radius={radius} autoRotateSpeed={AUTO_ROTATE_SPEED} itemWidth={cardSize.w} itemHeight={cardSize.h} />

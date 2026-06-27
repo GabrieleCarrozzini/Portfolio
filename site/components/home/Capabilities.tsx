@@ -258,12 +258,13 @@ export default function Capabilities() {
                 <span className="label-gold" style={{ display: 'block', marginBottom: 'var(--space-4)' }}>Philosophy</span>
                 <blockquote
                   style={{
-                    fontFamily: 'var(--font-display)',
-                    fontSize: 'clamp(1.4rem, 2.6vw, 2rem)',
-                    fontWeight: 700,
+                    fontFamily: 'var(--font-serif)',
+                    fontSize: 'clamp(1.6rem, 2.8vw, 2.4rem)',
+                    fontWeight: 300,
+                    fontStyle: 'italic',
                     color: 'var(--white)',
-                    letterSpacing: '-0.025em',
-                    lineHeight: 1.15,
+                    letterSpacing: '-0.01em',
+                    lineHeight: 1.2,
                     margin: 0,
                   }}
                 >

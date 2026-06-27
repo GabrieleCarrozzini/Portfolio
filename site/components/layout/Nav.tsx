@@ -43,7 +43,7 @@ export default function Nav() {
           right: 0,
           zIndex: 100,
           transition: 'background 400ms ease, backdrop-filter 400ms ease',
-          background: scrolled ? 'rgba(6,6,6,0.92)' : 'transparent',
+          background: scrolled ? 'rgba(0,0,0,0.92)' : 'transparent',
           backdropFilter: scrolled ? 'blur(12px)' : 'none',
           borderBottom: scrolled ? '1px solid rgba(250,250,248,0.08)' : '1px solid transparent',
         }}
@@ -144,7 +144,7 @@ export default function Nav() {
             transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.3 }}
             style={{
               position: 'fixed', inset: 0, zIndex: 99,
-              background: 'rgba(6,6,6,0.98)',
+              background: 'rgba(0,0,0,0.98)',
               display: 'flex', flexDirection: 'column',
               justifyContent: 'center', alignItems: 'center',
               gap: 40,
