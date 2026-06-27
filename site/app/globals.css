@@ -552,7 +552,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 0;
 }
 .form-input:focus { border-color: var(--gold-500); }
-.form-input::placeholder { color: var(--gray-700); }
+.form-input::placeholder { color: var(--gray-500); }
 
 /* â”€â”€â”€ Project Accent Classes â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .accent-gold   { --project-accent: var(--gold-500); }

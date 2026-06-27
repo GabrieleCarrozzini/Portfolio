@@ -47,7 +47,7 @@ export function ServicesGrid({ cards }: { cards: ServiceCard[] }) {
           flex-direction: column;
           background: var(--black-800);
           border: 1px solid var(--line);
-          border-radius: 16px;
+          border-radius: 0;
           padding: 28px 28px 24px;
           height: 340px;
           text-decoration: none;
@@ -69,15 +69,13 @@ export function ServicesGrid({ cards }: { cards: ServiceCard[] }) {
           width: 155px;
           height: auto;
           object-fit: cover;
-          border-radius: 8px;
+          border-radius: 0;
         }
         .svc-img-back  {
-          box-shadow: 0 8px 32px rgba(0,0,0,0.5);
           transform: rotate(-6deg);
           transition: transform 420ms cubic-bezier(0.16,1,0.3,1);
         }
         .svc-img-front {
-          box-shadow: 0 14px 44px rgba(0,0,0,0.65);
           transform: rotate(4deg);
           transition: transform 420ms cubic-bezier(0.16,1,0.3,1);
         }
